@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //声明和赋值分开
+      var rectWidth;
+      rectWidth = 100;
+
+      //声明和赋值一条语句书写，这叫语法糖
+      var a = 100;
+
+      //也可以多个变量一起声明
+      var a = 1,
+        b = 2,
+        c = 3;
+
+      //任何可以书写数据的地方，都可以书写变量
+
+      //JS中存在变量提升，但是这种提升不会超越脚本块
+      console.log(k1, k2);
+      var k1 = 1,
+        k2 = 2;
+
+      var name = "Li";
+      var age = 23;
+      var isVip = true;
+
+      console.log(name, age, isVip);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="script/test2.js" type="text/javascript">
+      //引用外部文件的script块里面不能书写任何其他代码
+      //添加类型type，定义使用的代码类型
+      //text/javascript表示的是MIME格式
+    </script>
+    <script>
+      //所有的输出、输入语句都不是ES标准
+      document.write("2");
+      //prompt点击确定或取消后才执行其他代码
+      prompt("type your name");
+    </script>
+  </body>
+</html>
