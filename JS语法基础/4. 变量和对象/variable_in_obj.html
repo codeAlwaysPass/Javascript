@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var user = {
+        account: "abc",
+        pwd: "123456",
+        age: 18,
+      };
+
+      console.log(user, typeof user);
+      //当读取的属性不存在，会得到undefined。当读取的对象不存在时，会报错
+      console.log(user.acount, user.c, typeof user.acount);
+
+      //对象存在，输出undefined
+    </script>
+  </body>
+</html>

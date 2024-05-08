@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var user = {
+        account: "abc",
+        pwd: "123456",
+        age: 18,
+        address: {
+          city: "ningbo",
+        },
+      };
+
+      console.log(user.address);
+
+      var user2 = { account: user.account };
+      console.log(user2.account);
+
+      var user3 = {};
+      user3.addr = user2.account;
+      console.log(user3.addr);
+    </script>
+  </body>
+</html>

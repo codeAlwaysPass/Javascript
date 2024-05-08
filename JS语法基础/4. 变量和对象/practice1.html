@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1. 定义一个变量，存放对象，包含姓名，年龄，女朋友:年龄，姓名
+      var user1 = {
+        name: "lawrence",
+        age: 18,
+        girlfriend: {
+          name: "xiang",
+          age: 18,
+        },
+      };
+      //2. 定义一个变量，存放对象，包含姓名，年龄，女朋友，女朋友和第一个女朋友一样
+      var user2 = {
+        name: "li",
+        age: 20,
+        girlfriend: user1.girlfriend,
+      };
+
+      console.log(user1, user2);
+
+      //3. 输出user1,user2女朋友的姓名
+      console.log(user1.girlfriend.name, user2.girlfriend.name);
+
+      //4. 删除user2的年龄
+      delete user2.age;
+
+      console.log(user1, user2);
+
+      //5. 属性的另一种表达方式
+      console.log(user1["age"]);
+
+      //6. 也可以放变量
+      var prop = "name";
+      console.log(user1[prop]);
+    </script>
+  </body>
+</html>

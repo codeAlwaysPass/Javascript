@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        a: "123",
+        0: 1,
+      };
+
+      //属性只能是字符串，如果输入数字，将自动转化为字符串
+      console.log(obj);
+
+      //也可以用这种方式直接加数字，宿主环境(浏览器)会自动解析为字符串
+      console.log(obj[0]);
+    </script>
+  </body>
+</html>
