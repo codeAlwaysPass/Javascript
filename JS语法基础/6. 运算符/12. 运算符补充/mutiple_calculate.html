@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var x = 2;
+
+      //x += 3; //等同于x = x + 3
+
+      //x *= 1 + 2 //等同于x = x * (1 + 2)
+
+      //2 * (2+2) = 8
+      x *= x++ + 2; //等同于x = x * ((x++) + 2)
+      console.log(x);
+    </script>
+  </body>
+</html>

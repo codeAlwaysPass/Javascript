@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let year = 2001;
+      let isLeap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+      let days = isLeap ? 29 : 28;
+      console.log(days
+      );
+    </script>
+  </body>
+</html>

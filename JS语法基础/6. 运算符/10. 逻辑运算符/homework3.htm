@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //利息计算器分别存放本金、月数、年利率，计算利息如果本金存放量超过了10万，年利率上浮20%（
+      //比如，年利率为4%，上浮后的年利率 4% * 1.2）
+      let money = 200000;
+      let rate = 0.4;
+      let month = 12;
+
+      if (money >= 100000) {
+        rate = rate * 1.2;
+      }
+
+      let result = (money * rate * month) / 12;
+      console.log(result);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var a = 1;
+      //a++得到的是表达式+1之前的值
+      console.log(a++);
+      //++a得到的是表达式+1之后的值
+      console.log(++a);
+
+      var x = 1;
+      // 1 + (2 * 4 * 4 * 6) / 2 = 97
+      var y = x++ + (x++ * ++x * x++ * ++x) / 2;
+      console.log(y);
+
+      //2 + 2*2/2 = 4
+      var x = 1;
+      var y = ++x + (x * x) / 2;
+      console.log(y);
+
+      //1+ 2*2/2 = 3
+      var x = 1;
+      var y = x++ + (x * x) / 2;
+      console.log(y);
+
+      //++ -- -> * / %-> + =
+    </script>
+  </body>
+</html>

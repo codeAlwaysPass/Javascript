@@ -1,0 +1,25 @@
+<script>
+  //说出以下程序是否有问题，问题在哪？
+  //中国象棋有4个马，每个马是一个对象，为了方便对象的创建，写出如下代码
+  var horse1 = {
+    name: "马",
+    position: {
+      x: 1,
+      y: 9,
+    },
+    color: "red",
+  };
+
+  var horse2 = horse1;
+  horse2.position.x = 7;
+
+  var horse3 = horse1;
+  horse3.name = "horse";
+  horse3.position.y = 0;
+  horse3.color = "black";
+
+  var horse4 = horse3;
+  horse4.position.x = 7;
+
+  //这么写肯定是不对的，因为这段代码只创建了两个对象，所有的马都在公用相同的对象
+</script>

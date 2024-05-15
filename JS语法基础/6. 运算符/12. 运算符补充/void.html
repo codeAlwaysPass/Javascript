@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var x = 1;
+      //void运行表达式，然后返回undefined
+      console.log(void (x + 1));
+
+      //逗号运算符,优先级比赋值还低
+      var x = 1;
+      //前两个式子只执行了x++*2但不返回，只返回最后一个3*2 = 6
+      x = (x++ * 2, x++ * 2, x++ * 2);
+      console.log(x);
+    </script>
+  </body>
+</html>
