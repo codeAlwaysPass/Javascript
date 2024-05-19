@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //求1-100之间所有数字之和
+      console.log("求1-100之间所有数字之和");
+      var sum = 0;
+      for (var i = 1; i <= 100; i++) {
+        sum += i;
+      }
+      console.log(sum);
+      //求1-100之间所有奇数之和
+      console.log("求1-100之间所有奇数之和");
+      var sum = 0;
+      for (var i = 1; i <= 100; i++) {
+        if (i % 2 !== 0) {
+          sum += i;
+        }
+      }
+      console.log(sum);
+      //求1-10之间所有数字的积
+      console.log("求1-10之间所有数字的积");
+      var prod = 1;
+      for (var i = 1; i <= 10; i++) {
+        prod *= i;
+      }
+      console.log(prod);
+      //判断数字233是不是素数。
+      console.log("判断数字233是不是素数。");
+      var isPrime = 0;
+      for (var i = 2; i < 233; i++) {
+        if (233 % i === 0) {
+          isPrime = 1;
+          break;
+        }
+      }
+      console.log(isPrime ? "yes" : "no");
+      //输出1-100中的所有素数
+      console.log("输出1-100中的所有素数");
+      for (var i = 1; i <= 100; i++) {
+        if (i == 1) {
+          console.log(i);
+        } else {
+          var isPrime = 0;
+          for (var j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+              isPrime = 1;
+              break;
+            }
+          }
+          if (!isPrime) {
+            console.log(i);
+          }
+        }
+      }
+      //求1-100之间的所有素数之和
+      console.log("求1-100之间的所有素数之和");
+      var sum = 0;
+      for (var i = 1; i <= 100; i++) {
+        if (i == 1) {
+          sum += i;
+        } else {
+          var isPrime = 0;
+          for (var j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+              isPrime = 1;
+              break;
+            }
+          }
+          if (!isPrime) {
+            sum += i;
+          }
+        }
+      }
+      console.log(sum);
+    </script>
+  </body>
+</html>

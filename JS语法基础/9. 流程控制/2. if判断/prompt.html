@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //用户输入，会把代码卡住不往后运行。加+prompt..可以返回数字
+      //var result = prompt("请输入你的年龄");
+      //点击取消返回null,其他情况都是string
+      //console.log(result, typeof result);
+
+      var result = prompt("请输入你的年龄");
+      if (result === null) {
+        console.log("点击了取消");
+      } else {
+        result = +result;
+        if (isNaN(result)) {
+          console.log("输入有误");
+        } else {
+          console.log(result, typeof result);
+        }
+      }
+    </script>
+  </body>
+</html>

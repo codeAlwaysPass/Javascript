@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //普通写法
+      var a = 5,
+        b = 3;
+      var temp = a;
+      a = b;
+      b = temp;
+      console.log(a, b);
+
+      //求和方法
+      a = a + b;
+      b = a - b;
+      a = a - b;
+      console.log(a, b);
+
+      //位运算方法
+      a = a ^ b;
+      b = a ^ b;
+      a = a ^ b;
+      console.log(a, b);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var x = 20;
+      switch (x) {
+        case 1:
+          console.log("1");
+          break;
+        case 20:
+          //如果没有break，case20进去之后，会把后面几个case里的代码块也执行了
+          console.log("20");
+          break;
+        case 30:
+          console.log("30");
+          break;
+        default:
+          console.log("default");
+          break;
+      }
+    </script>
+  </body>
+</html>

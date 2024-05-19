@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var x = 1;
+      //直接满足第一个
+      if (x++ >= 1) {
+        x++;
+      } else if (++x >= 2) {
+        x++;
+      } else {
+        x--;
+      }
+      console.log(x);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      if (!x) {
+        //此时x为undefined
+        console.log(x);
+        x = 0;
+      }
+      //虽然没进判断，但会执行x++
+      if (x++ >= 1) {
+        var x; //变量提升
+        x++;
+      }
+      //x=1,++x=2
+      else if (++x >= 2) {
+        x++;
+      } else {
+        x--;
+      }
+      console.log(x);
+    </script>
+  </body>
+</html>

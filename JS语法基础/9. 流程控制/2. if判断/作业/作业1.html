@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //提示用户输入一个三位数，
+      //若不是三位数，则提示用户输入有误；若是三位数，则判断该数能否被13整除。
+      var result = prompt("请输入一个三位数");
+      if (result === null) {
+        console.log("取消输入");
+      } else {
+        result = +result;
+        if (isNaN(result)) {
+          console.log("不是数字");
+        } else if ((result >= 100 && result <= 999) || (result <= -100 && result >= -999)) {
+          console.log(
+            "该数字" + (result % 13 === 0 ? "能" : "不能") + "被13整除"
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //根据世界卫生组织推荐的计算方法，
+      //男性标准体重计算方法为（身高cm－80）×70﹪
+      //女性标准体重计算方法为（身高cm－70）×60﹪
+      //标准体重正负10%为正常体重，低于标准体重的10%为过瘦，高于标准体重的10%为过重
+      //编写程序，让用户输入性别、身高、体重，判断用户的健康状况
+      var gender = prompt("请输入性别");
+      var height = +prompt("请输入身高");
+      var weight = +prompt("请输入体重");
+      if (
+        isNaN(height) ||
+        isNaN(weight) ||
+        (gender !== "男" && gender !== "女")
+      ) {
+        console.log("输入有误");
+      } else {
+        var standardWeigh;
+        if (gender === "男") {
+          standardWeight = (height - 80) * 0.7;
+        } else {
+          standardWeight = (height - 70) * 0.6;
+        }
+        var res = (weight - standardWeight) / standardWeight;
+        if (res > 0.1) {
+          console.log("过重");
+        } else if (res < -0.1) {
+          console.log("过瘦");
+        } else {
+          console.log("正常");
+        }
+      }
+    </script>
+  </body>
+</html>

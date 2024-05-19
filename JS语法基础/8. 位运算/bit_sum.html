@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //位的叠加/位的开关
+      var perm = {
+        read: 0b001,
+        write: 0b010,
+        create: 0b100,
+      };
+      //变量p中保存可读可写
+      var p = perm.read | perm.write;
+
+      //判断权限
+      console.log((p & perm.read) === perm.read);
+      console.log((p & perm.write) === perm.write);
+
+      //变量p修改为不可写
+      p = p ^ perm.write;
+
+      console.log((p & perm.read) === perm.read);
+      console.log((p & perm.write) === perm.write);
+    </script>
+  </body>
+</html>
