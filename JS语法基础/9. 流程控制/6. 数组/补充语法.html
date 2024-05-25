@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //in关键字, 判断某个属性是否存在
+      var obj = {
+        a: 1,
+        b: 234,
+        c: "c",
+      };
+      //记得字符串属性
+      console.log("a" in obj);
+
+      //判断的永远是属性
+      var arr = [23, 65, 7, 7];
+      console.log(23 in arr, 0 in arr);
+
+      //for in循环, 取出的是属性名
+      //用for in和for(var i...)的最大区别是for in无法遍历到空对象
+      var arr = [1, 2, 3, 4, 5];
+      for (var prop in arr) {
+        console.log(prop, arr[prop]);
+      }
+
+      var obj = {
+        a: 1,
+        b: 2,
+        c: 3,
+      };
+      for (var prop in obj) {
+        console.log(prop, obj[prop]);
+      }
+
+      //数组.fill,将数组的所有项填充为指定的数据
+      var arr = new Array(100);
+      arr.fill("abc");
+      console.log(arr);
+
+      var arr = [1, 2, 3];
+      //数组开始下标开始填充至末尾
+      arr.fill("abc", 1);
+      console.log(arr);
+
+      var arr = [1, 2, 3];
+      //从数组开始到结束下标填充, 取不到结束那个
+      arr.fill("abc", 1, 2);
+      console.log(arr);
+    </script>
+  </body>
+</html>

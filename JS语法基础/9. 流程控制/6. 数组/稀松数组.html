@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //数组的最后一个多出来的逗号(如果有)会被忽略
+      //不生成前面几项,不存在0-2的index,前三个是空属性
+      //出现不连续下标的是稀松数组
+      var arr = [, , , 3];
+      console.log(arr);
+
+      //undefined不一样，是存在index的
+      var arr = [undefined, undefined, undefined, 3];
+      console.log(arr);
+
+      //这样的都是empty的也是稀松数组
+      var arr = new Array(100);
+    </script>
+  </body>
+</html>

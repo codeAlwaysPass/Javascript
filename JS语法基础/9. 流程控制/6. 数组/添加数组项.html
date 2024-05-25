@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //向末尾添加一项,可以使用数组[数组长度]=?
+      var arr = [1, 2, 3, 4, 5];
+      arr[5] = 6;
+      arr[arr.length] = 7;
+      console.log(arr);
+
+      //使用push
+      arr.push("abc", 1);
+      arr.push(arr);
+      console.log(arr);
+
+      //unshift,向数组起始位置添加元素
+      arr.unshift("start");
+      console.log(arr);
+
+      //splice既可以删除数据也可以加数据,splice(下标,0,添加的数据)
+      //从指定下标开始,删除0个数据,插入添加的数据
+      var arr = [1, 2, 3, 4];
+      arr.splice(2, 0, 'a');
+      console.log(arr);
+    </script>
+  </body>
+</html>

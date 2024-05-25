@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //创建了一个长度为20的数组
+      var arr1 = new Array(20);
+      console.log(arr1);
+
+      //创建一个数组，并初始化里面每一项的数据
+      var arr2 = new Array(1, 2, 3, 5, 3);
+      console.log(arr2);
+
+      //使用[]直接创建数组
+      var arr3 = [1, 2, 3, 5, 3];
+      console.log(arr3);
+
+      //数组里的每一项不一定都是数字
+      var arr4 = [34, "121", true, null, undefined, { x: 1, y: 34 }];
+      console.log(arr4);
+
+      //输出数组长度
+      console.log(arr4.length);
+
+      //得到数组某一项属性(数组的本质是对象),属性始终是字符串。
+      console.log(arr4[2], arr4["2"]);
+      console.log(arr4[5]["y"], arr4[5].y);
+
+      //数组长度自动是数组最大下标+1,如果给length直接赋值会导致数组可能被截断,非数字属性会被保留
+      arr4[50] = 1;
+      arr4.abc = "sad";
+      arr4.length = 2;
+      console.log(arr4);
+
+      
+    </script>
+  </body>
+</html>

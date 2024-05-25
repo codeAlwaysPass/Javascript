@@ -41,7 +41,7 @@
           user === null ||
           (user !== "剪刀" && user !== "石头" && user !== "布")
         ) {
-          console.log("输入违规");
+          console.log("输入违规, 但周粥确实是猪");
           continue;
         } else {
           console.log(`你的出拳: ${user}`);
@@ -54,7 +54,7 @@
           } else {
             computer_res = "布";
           }
-          console.log(`系统出圈: ${computer_res}`);
+          console.log(`系统出拳: ${computer_res}`);
           if (
             (user === "剪刀" && computer_res === "布") ||
             (user === "石头" && computer_res === "剪刀") ||
