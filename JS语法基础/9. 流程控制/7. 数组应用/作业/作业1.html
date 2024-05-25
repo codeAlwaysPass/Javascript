@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //提示用户输入数组的长度，以及数组每一项的值，然后输出该数组
+      var len =parseInt(prompt("请输入长度"));
+      if (isNaN(len) || len <= 0) {
+        console.log("输入错误");
+      } else {
+        var arr = new Array(len);
+        for (var i = 0; i < len; i++) {
+          arr[i] = prompt("请输入该项内容");
+        }
+        console.log(arr);
+      }
+    </script>
+  </body>
+</html>

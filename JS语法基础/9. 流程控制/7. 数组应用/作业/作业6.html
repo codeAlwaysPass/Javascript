@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //定义一个用户数组，数组的每一项是一个用户对象，用户对象中包含账号和密码，
+      //随意初始化一些对象放入数组中。然后提示用户输入账号和密码，判断是否登录成功
+      var arr = [
+        { name: "law", password: "123" },
+        { name: "law1", password: "1234" },
+        { name: "law2", password: "12345" },
+      ];
+      var name = prompt("请输入账号");
+      var isHave = false;
+      var index = null;
+
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].name === name) {
+          isHave = true;
+          index = i;
+          break;
+        }
+      }
+
+      if (!isHave) {
+        console.log("账户不存在");
+      } else {
+        var password = prompt("请输入密码");
+        if (password === arr[index].password) {
+          console.log("登录成功");
+        } else {
+          console.log("登录失败");
+        }
+      }
+    </script>
+  </body>
+</html>

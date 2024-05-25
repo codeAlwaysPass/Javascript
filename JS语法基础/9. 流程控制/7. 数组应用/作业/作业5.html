@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //斐波拉契数列是这样一种数列：1  1  2  3  5  8  13 ......
+      //数列前两位为1，第n位=第n-1位+第n-2位
+      //让用户输入斐波拉契数列的长度，在控制台中打印该长度的斐波拉契数列
+      var len = parseInt(prompt("请输入长度"));
+      if (isNaN(len) || len <= 0) {
+        console.log("输入错误");
+      } else {
+        var fib = [];
+        if (len >= 1) fib.push(1);
+        if (len >= 2) fib.push(1);
+
+        for (var i = 2; i < len; i++) {
+          fib.push(fib[i - 1] + fib[i - 2]);
+        }
+
+        console.log(fib);
+      }
+    </script>
+  </body>
+</html>

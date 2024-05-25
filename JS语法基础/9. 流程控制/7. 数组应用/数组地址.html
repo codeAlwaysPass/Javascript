@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //数组中存放的也是地址
+      var arr1 = [1, 2, 3];
+      var arr2 = arr1;
+      arr2[0] = "a";
+      console.log(arr1[0], arr2[0]);
+
+      //如何复制(克隆)一个全新的对象
+      var arr1 = [3, 5, 7, 9, 12];
+      var arr2 = arr1.slice();
+
+      //地址不相同
+      console.log(arr1 === arr2);
+
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //初始化一个数字数组，然后输出数组中所有的素数
+      var arr = [1, 2, 3, 5, 13, 55, 91, 22];
+      for (var i = 0; i < arr.length; i++) {
+        if (isPrime(arr[i])) {
+          console.log(arr[i]);
+        }
+      }
+
+      function isPrime(num) {
+        if (num == 1) {
+          return false;
+        }
+        for (var i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i == 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

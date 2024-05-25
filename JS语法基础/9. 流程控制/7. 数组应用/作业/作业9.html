@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>找出频率最高的数字</title>
+</head>
+<body>
+  <script>
+    // 有一个数组，存放了一些数字，找出出现频率最高的数字
+    var arr = [1, 1, 1, 1, 1, 2, 2, 2, 3, 4, 55, 5, 5, 5, 5, 5, 5, 10];
+    var hashmap = {};
+    var res = null;
+    var maxNum = 0;
+
+    for (var i = 0; i < arr.length; i++) {
+      if (hashmap[arr[i]]) {
+        hashmap[arr[i]] += 1;
+      } else {
+        hashmap[arr[i]] = 1;
+      }
+
+      if (hashmap[arr[i]] > maxNum) {
+        maxNum = hashmap[arr[i]];
+        res = arr[i];
+      }
+    }
+
+    console.log("出现频率最高的数字是：", res);
+  </script>
+</body>
+</html>

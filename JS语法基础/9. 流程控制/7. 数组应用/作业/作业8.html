@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //初始化一个数字数组（数据随意），对该数组进行升序排序，然后输出结果
+      var arr = [2, 42, 145, 12, 1, -42, 213];
+      var left = 0;
+      var right = arr.length - 1;
+
+      quickSort(arr, left, right);
+
+      console.log(arr);
+
+      function quickSort(arr, left, right) {
+        if (left >= right) {
+          return;
+        }
+        pivot = getPivot(arr, left, right);
+        quickSort(arr, left, pivot - 1);
+        quickSort(arr, pivot + 1, right);
+      }
+
+      function getPivot(arr, left, right) {
+        var pivot = left;
+        var index = pivot + 1;
+        for (var i = index; i <= right; i++) {
+          if (arr[i] < arr[pivot]) {
+            swap(arr, i, index);
+            index++;
+          }
+        }
+        swap(arr, pivot, index - 1);
+
+        return index - 1;
+      }
+
+      function swap(arr, i, j) {
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    </script>
+  </body>
+</html>
