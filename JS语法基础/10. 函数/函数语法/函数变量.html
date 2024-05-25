@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function test() {
+        a = 3;
+      }
+      test();
+      //函数执行后, a就会变成全局变量
+
+      //如果在函数内使用var, 变量会被提升到函数顶部
+      function test2() {
+        console.log(b);
+        var b = 3;
+      }
+      test2();
+      //这里就会报错，函数声明的变量仅能在函数中使用
+      console.log(b);
+
+      //函数内的变量和函数外的变量互相不影响
+    </script>
+  </body>
+</html>

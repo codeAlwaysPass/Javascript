@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //在同一个脚本块中，声明的函数会提升到脚本块顶部
+      //通过字面量声明的函数，会成为window的属性
+      printSplitor();
+      window.printSplitor();
+      function printSplitor() {
+        console.log("=========");
+      }
+    </script>
+  </body>
+</html>

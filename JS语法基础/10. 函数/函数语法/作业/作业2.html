@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //让用户输入一个年份，输出该年每个月的天数
+      var year = parseInt(prompt("请输入年份"));
+      if (isNaN(year) || year <= 0) {
+        console.log("输入错误");
+      } else {
+        console.log(getDays(year));
+      }
+
+      //判断该某年是否是闰年
+      function isLeap(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+      }
+
+      //得到某年每月的天数
+      function getDays(year) {
+        var daysInMonths = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        var daysInMonthsLeap = [
+          0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+        ];
+
+        return isLeap(year) ? daysInMonthsLeap : daysInMonths;
+      }
+    </script>
+  </body>
+</html>

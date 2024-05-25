@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isOdd(n) {
+        if (n % 2 === 0) {
+          console.log(n + "不是奇数");
+        } else {
+          console.log(n + "是奇数");
+        }
+      }
+      isOdd(123);
+
+      //如果实参没有传递, 对应的函数形参为undefined
+      isOdd();
+
+      function sum(a, b) {
+        console.log(`${a}+${b}=${a + b}`);
+      }
+      sum(1, 2);
+    </script>
+  </body>
+</html>
