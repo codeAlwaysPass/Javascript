@@ -101,3 +101,5 @@ function getTopFreqInArray(arr) {
 
   return { maxElement: resElement, maxFreq: maxFreq };
 }
+
+//

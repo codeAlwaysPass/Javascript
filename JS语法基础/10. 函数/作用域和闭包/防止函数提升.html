@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //为了防止函数提升, 可以用小括号将函数抱起来, 把它变成一个表达式
+      console.log(window.test);
+      //表达式返回的是函数本身
+      (function test() {
+        console.log("hello world");
+      });
+
+      //这里也是执行不到这个函数的
+      try {
+        test();
+      } catch (e) {
+        console.log(e);
+      }
+
+      //立即执行函数, IIFE。也可以省略函数名, 叫做匿名函数
+      (function () {
+        var a = 1,
+          b = 2;
+        console.log(a, b);
+      })();
+    </script>
+  </body>
+</html>

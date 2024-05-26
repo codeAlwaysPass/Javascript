@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //this在默认环境下指向全局变量
+      console.log(this);
+
+      //this无法赋值
+      //this = 23;
+
+      //在函数作用域中,函数直接调用, this指向全局对象
+      function test() {
+        console.log(this);
+      }
+
+      test();
+
+      //函数通过一个对象调用,格式为对象.属性()或对象["属性"], 指向对象
+      var b = test;
+      var arr = [b, test];
+
+      //this指向arr
+      arr[0]();
+
+      var obj = {
+        a: function () {
+          console.log(this);
+        },
+        b: {
+          x: 2222,
+          func: function () {
+            console.log(this);
+          },
+        },
+      };
+
+      //指向obj
+      obj.a();
+      var b = obj.a;
+      //运行时不是被对象调用的, this指向又是window
+      b();
+      //指向b对象
+      obj.b.func();
+    </script>
+  </body>
+</html>

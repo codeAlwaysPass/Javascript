@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //a,b会被提升到顶部, 函数也会被提升到顶部
+      console.log(a in window, b in window, window.test);
+
+      function test() {
+        //这里的c,d只会被提升到函数的顶部
+        var c = 232;
+        var d = "sasa";
+      }
+
+      var a = 234;
+      var b = "1213";
+
+      console.log(c in window, d in window);
+    </script>
+  </body>
+</html>

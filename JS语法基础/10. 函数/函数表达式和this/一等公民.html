@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //函数是一等公民, 任何地方都可以出现函数
+      var obj = {
+        a: "a",
+        b: "b",
+        c: function () {
+          console.log("sss");
+        },
+      };
+
+      console.log(obj.c, typeof obj.c);
+      obj.c();
+
+      //函数的参数也可以是函数, 通常称之为回调函数
+      function test(call) {
+        console.log("test运行");
+        call();
+      }
+
+      var func = function () {
+        console.log("asa");
+      };
+
+      test(func);
+
+      //函数的参数也可以是对象
+    </script>
+  </body>
+</html>

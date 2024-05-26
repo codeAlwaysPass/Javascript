@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var g = "ABC";
+
+      //函数A可以使用B之外的变量和全局变量, 不能使用B函数内部的变量
+      function A() {
+        var a = 234;
+        //内部函数使用外部变量，闭包现象
+        console.log(a, g);
+
+        //B函数可以使用函数A中的变量和全局变量和B函数中定义的变量
+        function B() {
+          var b = 567;
+          //内部函数使用外部变量，闭包现象
+          console.log(b, a, g);
+        }
+
+        B();
+      }
+
+      A();
+      //A函数中的B函数无法被执行
+      B();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        firstName: "law",
+        lastname: "li",
+        age: 18,
+        sayHello: function () {
+          //为什么这里不能用obj.age?
+          //因为如果用了, 那么说明obj必须指向的是这个obj对象,如果obj改变了, 那么就会出错
+          console.log(`我今年${this.age}岁,我叫${obj.firstName}`);
+        },
+      };
+
+      //this指向obj
+      obj.sayHello();
+
+      var a = obj.sayHello;
+      //指向全局
+      a();
+
+      var obj2 = obj;
+      obj = 3;
+      //这时候obj.firstName就取不到东西了
+      obj2.sayHello();
+    </script>
+  </body>
+</html>

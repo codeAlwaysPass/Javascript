@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //这也是一种表达式, 表达式的值就是函数本身, 函数名也可以省略
+      //这种是函数表达式
+      //这样的表达式无法提升到最顶部, 调用是undefined
+      //a中存的是指向保存函数内存空间的地址
+      var a = function () {
+        console.log("hello world");
+      };
+
+      var b = a;
+      console.log(a === b);
+
+      //这种是函数字面量
+      //有函数提升，会附着在window对象上面
+      function a() {
+        console.log("ss");
+      }
+      a();
+    </script>
+  </body>
+</html>
