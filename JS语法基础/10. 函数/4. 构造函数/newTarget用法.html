@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function User(name, age, gender) {
+        //为了防止没加new的情况意外发生, 可以加入异常判断防止
+        if (new.target === User) {
+          this.name = name;
+          this.age = age;
+          this.gender = gender;
+          this.sayHello = function () {
+            console.log(
+              `我叫${this.name},今年${this.age}岁,性别${this.gender}`
+            );
+          };
+        } else {
+          return {
+            name,
+            age,
+            gender,
+            sayHello: function () {
+              console.log(
+                `我叫${this.name},今年${this.age}岁,性别${this.gender}`
+              );
+            },
+          };
+        }
+      }
+
+      var u1 = new User("1", "2", "3");
+      u1.sayHello();
+      var u2 = User("22", "22", "22");
+      u2.sayHello();
+    </script>
+  </body>
+</html>

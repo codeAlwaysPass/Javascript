@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //求斐波那契数列的第n位
+
+      function f(n) {
+        if (n === 1 || n === 2) {
+          return 1;
+        }
+
+        return f(n - 1) + f(n - 2);
+      }
+
+      console.log(f(5));
+    </script>
+  </body>
+</html>

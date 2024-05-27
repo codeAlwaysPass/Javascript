@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //英雄打怪兽的小游戏
+      //英雄和怪兽都具有攻击力、防御力、生命值、暴击几率（暴击时伤害翻倍）
+      //攻击伤害 = 攻击力 - 防御力
+      //伤害最少为1.
+      //创建一个英雄和一个怪兽，让它们互相攻击，直到一方死亡，输出整个攻击过程。
+      function Role(attack, defence, life, doubleRate) {
+        this.attack = attack;
+        this.defence = defence;
+        this.life = life;
+        this.doubleRate = doubleRate;
+      }
+
+      var hero = new Role(45, 15, 800, 0.2);
+      var monster = new Role(25, 20, 2000, 0.1);
+
+      console.log("=====游戏开始=====");
+      var count = 1;
+
+      while (hero.life > 0 && monster.life > 0) {
+        console.log(`第${count}回合`);
+        var heroRate = Math.random();
+        var heroAttack = hero.attack;
+        if (heroRate <= hero.doubleRate) {
+          console.log("英雄暴击!!!");
+          heroAttack *= 2;
+        }
+        var monsterAttack = monster.attack;
+        var monsterRate = Math.random();
+        if (monsterRate <= monster.doubleRate) {
+          console.log("怪兽暴击!!!");
+          monsterAttack *= 2;
+        }
+        console.log(`本回合英雄攻击为${heroAttack},防御为${hero.defence}`);
+        console.log(
+          `本回合怪兽攻击为${monsterAttack},防御为${monster.defence}`
+        );
+
+        heroHurt = heroAttack - monster.defence;
+        monsterHurt = monsterAttack - hero.defence;
+
+        heroHurt = heroHurt > 0 ? heroHurt : 1;
+        monsterHurt = monsterHurt > 0 ? monsterHurt : 1;
+
+        hero.life -= monsterHurt;
+        monster.life -= heroHurt;
+
+        hero.life = hero.life > 0 ? hero.life : 0;
+        monster.life = monster.life > 0 ? monster.life : 0;
+
+        console.log(
+          `本回合英雄造成${heroHurt}点伤害,怪兽造成${monsterHurt}点伤害`
+        );
+        console.log(`英雄剩余血量为${hero.life},怪兽剩余血量为${monster.life}`);
+
+        count += 1;
+      }
+
+      console.log("=====游戏结束=====");
+
+      if (hero.life === monster.life) {
+        console.log("=====平手=====");
+      } else if (hero.life > monster.life) {
+        console.log("=====英雄赢=====");
+      } else {
+        console.log("=====怪兽赢=====");
+      }
+    </script>
+  </body>
+</html>

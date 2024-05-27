@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //函数实际上是通过构造函数new Function形成的
+      var sum = new Function("a", "b", "return a+b");
+      console.log(typeof sum);
+      console.log(sum(3, 5));
+    </script>
+  </body>
+</html>
