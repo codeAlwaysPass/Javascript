@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //只起到推断作用,并不会进入匹配结果
+      var s = "sdfsdfsdf3434343434sdfsa545454dfsdfdfs";
+      var reg = /[a-zA-Z](?=\d+)/g;
+      while ((res = reg.exec(s))) {
+        //进来的只有字母, 数字只是检查, 不进入匹配结果
+        console.log(res);
+      }
+
+      var s = "43534512312";
+      //\B代表非单词边界防止3倍数情况发生
+      var reg = /\B(?=(\d{3})+$)/g;
+      s = s.replace(reg, ",");
+      console.log(s);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //不改变当前对象的函数叫做纯函数
+      //比如说concat
+      var arr1 = [1, 2, 3];
+      var arr2 = [4, 5, 6];
+      var arr = arr1.concat(arr2);
+
+      console.log(arr, arr1, arr2);
+
+      //includes返回数组中是否包含指定的值, 可以传入指定开始的index
+      var arr = [1, 3213, 31, 32, 999];
+      console.log(arr.includes(3213), arr.includes(3213, 4));
+
+      var arr = [
+        {
+          x: 1,
+          y: 2,
+        },
+        {
+          x: 3,
+          y: 4,
+        },
+      ];
+      //includes无法找到对象
+      console.log(arr.includes({ x: 1, y: 2 }));
+
+      //遍历函数forEach
+      var arr = [234, 65, 2, 432, 5];
+      arr.forEach(function (item, i, a) {
+        //函数接受三个参数:每一项的值,每一项的索引,数组
+        console.log(item, i, a);
+      });
+
+      //是否所有的元素都满足条件
+      var arr = [77, 65, 88, 75, 90];
+      var result = arr.every(function (item) {
+        return item >= 60;
+      });
+
+      console.log(result);
+
+      //至少有一个元素满足条件
+      var arr = [50, 90, 2, 12];
+      var result = arr.some(function (item) {
+        return item >= 60;
+      });
+      console.log(result);
+
+      //filter, 过滤数组中的元素, 得到满足条件的元素组成的新数组
+      var arr = [77, 23, 12, 33, 100];
+      var newArr = arr.filter(function (item) {
+        return item >= 60;
+      });
+      console.log(newArr);
+
+      //find, 得到第一个满足条件的元素
+      var arr = [
+        {
+          name: "a",
+          score: 20,
+        },
+        {
+          name: "b",
+          score: 55,
+        },
+        {
+          name: "c",
+          score: 90,
+        },
+        {
+          name: "d",
+          score: 100,
+        },
+      ];
+      var result = arr.find(function (item) {
+        return item.score >= 90;
+      });
+      console.log(result.name);
+
+      //findIndex, 找到第一个满足条件的下标
+      var result = arr.findIndex(function (item) {
+        return item.score >= 90;
+      });
+      console.log(result);
+
+      //map
+      var arr = [90, 21, 23, 43, 100];
+
+      //得到一个新数组,数组的每一项是对象
+      //对象包含两个属性,name和score
+      var newArr = arr.map(function (item, i) {
+        return {
+          name: "学生" + (i + 1),
+          score: item,
+        };
+      });
+      console.log(newArr);
+
+      //得到一个学生的姓名数组
+      newArr = newArr.map(function (item) {
+        return item.name;
+      });
+      console.log(newArr);
+
+      //reduce,代表统计、累计
+      //reduce(a,b),第一次拿数组中的两项,求值后把结果传给第一个参数,把数组下一项传给第二个参数
+      //如果函数中只有一项,直接返回函数中的第一项
+      var arr = [2, 3, 4, 1, 122];
+      var sum = arr.reduce(function (s, item) {
+        console.log(s, item);
+        return s + item;
+      });
+      console.log(sum);
+
+      //如果数组为空,reduce会报错,但可以添加初始值值参数
+      //添加初始值后, 正常情况下函数会多运行一次,s为初始值
+      var arr = [];
+      var sum = arr.reduce(function (s, item) {
+        console.log(s, item);
+        return s + item;
+      }, 1);
+      console.log(sum);
+    </script>
+  </body>
+</html>

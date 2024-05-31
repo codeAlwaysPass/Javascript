@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //静态成员
+      //fromCharCode通过unicode编码创建字符串
+      var a = String.fromCharCode(65, 66);
+      console.log(a); //AB
+
+      for (var i = 65; i < 65 + 26; i++) {
+        console.log(String.fromCharCode(i));
+      }
+
+      //fromCodePoint通过一串码点创建字符串(会进行编码的有效性检查)
+      console.log(String.fromCharCode(Infinity)); //输出空格
+      //console.log(String.fromCodePoint(Infinity)); //报错
+
+      //实例成员
+      //length得到字符串长度
+      var a = "sdaas";
+      console.log(a.length);
+
+      //charAt返回指定位置的字符
+      var s = "asada";
+      console.log(s.charAt(2), s[2]);
+
+      //charCodeAt返回指定位置的字符编码
+      var s = "abc成和";
+      console.log(s.charCodeAt(3));
+
+      //concat拼接字符串, 返回新的字符串
+      var s1 = "abc";
+      var s2 = "efg";
+      console.log(s1.concat(s2, "sa", "sa"), s1);
+
+      //includes代表该字符串是否包含其他字符串
+
+      //endsWith代表是否以某个字符串为结尾
+      var s = "sdasd大必吃食物";
+      console.log(s.endsWith("食物"), s.endsWith("大必吃食物"), s.endsWith(""));
+
+      //indexOf代表检索到满足条件的字符串的第一个索引
+      console.log(s.indexOf("大必吃"));
+
+      //padStart(长度,'0'), 用0填充长度, 从头开始填充
+      //padEnd以末尾开始填充
+      var hour = 2,
+        minute = 8,
+        second = 20;
+
+      //输出02:08:20
+      console.log(
+        `${hour.toString().padStart(2, 0)}:${minute
+          .toString()
+          .padStart(2, 0)}:${second.toString().padStart(2, 0)}`
+      );
+
+      //slice, 摘取一个字符串区域, 返回一个新的字符串, 位置可以是负数代表倒数
+      console.log("abcd".slice(1, 3));
+
+      //substr(起始位置, 长度)返回在指定位置开始的字符串
+      console.log("abcd".substr(1, 2));
+
+      //substring(start,end), 返回从某个位置取到某个位置的字符串, 负数全部当0处理
+      console.log("abcd".substring(1, 3), "abcd".substring(-2, -1));
+      console.log("abcd".substring(3, 1)); //会自动倒换
+
+      //toLowerCase,toUpperCase转换大小写
+
+      //trim表示去掉首尾空格,trimStart去掉起始空格, trimEnd去掉结尾空格
+
+      //split是分割字符串为数组
+      var s = "a,b,c,d,e,f";
+      var arr = s.split(",");
+      console.log(arr);
+
+      //利用split和join把,换成、
+      s = s.split(",").join("、");
+      console.log(s);
+    </script>
+  </body>
+</html>

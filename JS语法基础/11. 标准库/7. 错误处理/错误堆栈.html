@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(Error());
+      function isOdd(n) {
+        if (isNaN(n)) {
+          throw new Error("必须是一个正常的数字");
+        }
+        return n % 2 !== 0;
+      }
+      //isOdd("abc");
+      //目前这段代码是无法执行的
+      //console.log(isOdd(3));
+
+      //错误堆栈 C->B->A
+      function A() {
+        B();
+        //无法执行
+        console.log("aaa");
+      }
+      function B() {
+        C();
+        //无法执行
+        console.log("aaa");
+      }
+      function C() {
+        throw new Error("sos");
+        //无法执行
+        console.log("aaa");
+      }
+
+      A();
+      //无法执行
+      console.log('aaa');
+    </script>
+  </body>
+</html>

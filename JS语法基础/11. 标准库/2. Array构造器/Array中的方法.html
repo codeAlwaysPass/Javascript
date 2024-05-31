@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Array中的静态方法
+      function test() {
+        //判断是不是array
+        console.log(Array.isArray(arguments));
+        //将伪数组转换为真数组
+        var newArr = Array.from(arguments);
+        console.log(newArr);
+
+        //类似于中括号创建数组, 依次赋予数组里的每一项
+        var arr = Array.of(1, 2, 12, "11");
+        console.log(arr);
+
+        //将当前数组转置
+        console.log(arr.reverse(), arr);
+
+        var arr = [3, 211, 322, 12, 21];
+        //对数组进行排序, 有时候会失败, 默认排序是根据unicode码点, 也就是说sort是把里面的字符串都当作字符串编码
+        console.log(arr.sort(), arr);
+
+        //要解决这个问题, 可以给sort传入比较函数
+        function compare(a, b) {
+          return a - b;
+        }
+
+        console.log(arr.sort(compare));
+
+        //也可以利用这个特效对数组进行洗牌
+        function shuffle(a, b) {
+          return Math.random() - 0.5;
+        }
+
+        console.log(arr.sort(shuffle));
+
+      }
+      test();
+    </script>
+  </body>
+</html>

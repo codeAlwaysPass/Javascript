@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //定义敏感词构造函数
+      var senWords = ["色情", "暴力", "卢本伟", "贸易战"];
+      function removeSensitiveWords(s, rep) {
+        var reg = new RegExp(senWords.join("|"), "g");
+        //如果我要把连在一起的敏感词改为只有4个*
+        var reg = new RegExp(`(${senWords.join("|")})+`,'g');
+        return s.replace(reg, rep);
+      }
+
+      console.log(
+        removeSensitiveWords("2131色情暴力221卢本伟牛逼312贸易战", '****')
+      );
+    </script>
+  </body>
+</html>

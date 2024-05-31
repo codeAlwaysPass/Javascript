@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        x: 13,
+        y: 3123,
+      };
+
+      //valueOf返回的是这个对象本身
+      console.log(obj.valueOf() === obj);
+
+      //js中, 当自动的类型转换时, 要转换一个对象, 实际上是要先使用valueOf再使用toString方法
+      console.log(obj + 1); //输出[object Object]1
+
+      var obj = {
+        x: 13,
+        y: 3123,
+        valueOf() {
+          return 123;
+        },
+      };
+
+      //理论上, 这里因为先用valueOf, 再用toString, 得到的是"1231"
+      //***但是***, 这里得到的是124
+      //***因为如果valueOf已经得到了原始类型, 则不再进行toString进行转换
+      console.log(obj + 1);
+
+      //所以, 当自动的类型转换时, 要转换一个对象, 先对它进行valueOf
+      //如果valueOf已经得到的是一个原始类型, 那么不进行toString, 否则再使用toString
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //用new就是产生对象, 不用就是产生一个数字
+      var a = new Number(1);
+      console.log(a);
+      var a = Number(1);
+      console.log(a);
+
+      //Number的静态方法
+      //isNaN是Number的静态方法, 但是也放在全局对象里了
+      console.log(Number.isNaN(NaN));
+
+      //isFinite
+      console.log(Number.isFinite(1), isFinite(+"Finity"));
+
+      //isInteger,3.0和3值都是整数,都是true
+      console.log(
+        Number.isInteger(3.0),
+        Number.isInteger(3.14),
+        Number.isInteger(3)
+      );
+
+      //parseInt, parseFloat
+      console.log(parseFloat(3));
+      //parseInt没有四舍五入, 直接舍去小数部分
+      //实际上parseInt要求的是一个字符串, 如果转入的是一个数字, 先转成字符串再转换
+      //从字符串开始位置进行查找,找到第一位是有效数字开始进行转换,如果没找到返回NaN
+      console.log(parseInt(3.1321312));
+
+      //这个出来的是3,因为...已经无效了
+      console.log(parseFloat("3...12"));
+      //这里的第一位不是有效数字,所以返回NaN
+      console.log(parseFloat("abc3.14"));
+
+      //可以加入参数按照进制转换,但必须是有效的进制数不然返回NaN
+      //一直转换到没有有效数字
+      console.log(parseInt("101", 2));
+      //NaN
+      console.log(parseInt("33", 2));
+      //10有效,2
+      console.log(parseInt(103, 2));
+
+      //toFixed会导致四舍五入
+      console.log((3.1415926).toFixed(4)); //3.1416
+
+      //toPrecision代表指定精度
+      var a = 1234.1234;
+      console.log(a.toPrecision(10));
+      console.log(a.toPrecision(2));
+    </script>
+  </body>
+</html>

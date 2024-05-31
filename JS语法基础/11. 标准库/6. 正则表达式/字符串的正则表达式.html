@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var s = "1234abc123aaa";
+      var result = s.match(/\d+/g);
+
+      //返回所有的匹配结果(数组)
+      console.log(result);
+
+      //搜索满足条件的第一个的下标
+      result = s.search(/\d+/g);
+      console.log(result);
+      //得到的永远是第一次, 还是0
+      console.log(result);
+
+      //split结合正则
+      var s = "asddsf,fgdfgd asf-sas\tzzq";
+      var result = s.split(/[, \-\t\s]/);
+      console.log(result);
+
+      //replace结合正则
+      var s = "asddsf,fgdfgd asf-sas\tzzq";
+      s = s.replace(/\s/g, ",");
+      console.log(s);
+
+      var s = "hello world\tjavascript\nyes";
+      s = s.replace(/\s*\b[a-z]\s*/g, function (match) {
+        return match.toUpperCase().trim();
+      });
+      console.log(s);
+    </script>
+  </body>
+</html>

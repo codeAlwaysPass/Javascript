@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //时间的算术运算基于时间戳
+      var d1 = new Date();
+      var d2 = new Date(2024, 4, 30, 21);
+
+      console.log(d1 - d2);
+      //得到两个日期相差的消失
+      console.log((d1 - d2) / (60 * 60 * 1000));
+
+      //在某个日期基础上加上一天
+      var d = new Date();
+      var newTime = d.getTime() + 24 * 60 * 60 * 1000;
+      d.setTime(newTime);
+      console.log(d);
+    </script>
+  </body>
+</html>

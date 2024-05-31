@@ -156,4 +156,33 @@ var MyFunctions = {
 
     return num;
   },
+
+  getRandom: function (min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  },
+
+  getAge: function (year, month, day) {
+    var now = new Date();
+    var dec = now.getFullYear() - year;
+    if (month === 2 && day === 29 && !this.isLeap(now.getFullYear())) {
+      day = 28;
+    }
+    var birthdayThisYear = new Date(now.getFullYear(), month - 1, day);
+    if (birthdayThisYear > now) {
+      dec--;
+    }
+    return dec;
+  },
+
+  getDateString: function (date) {
+    var year = date.getFullYear().toString().padStart(4, "0");
+    var month = (date.getMonth() + 1).toString().padStart(2, "0");
+    var day = date.getDay().toString().padStart(2, "0");
+
+    var hours = date.getHours().toString().padStart(2, "0");
+    var minutes = date.getMinutes().toString().padStart(2, "0");
+    var seconds = date.getSeconds().toString().padStart(2, "0");
+
+    return `${year}年-${month}月-${day}日 ${hours}:${minutes}${seconds}`;
+  },
 };

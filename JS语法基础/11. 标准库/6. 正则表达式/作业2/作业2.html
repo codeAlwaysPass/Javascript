@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //得到一个字符串中中文字符的数量
+      var reg = /[\u4e00-\u9FA5]/g;
+      var s = "你乘飞机前往基地相似";
+      var n = 0;
+      while (reg.test(s)) {
+        n++;
+      }
+      console.log(n);
+    </script>
+  </body>
+</html>

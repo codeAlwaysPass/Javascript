@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //书写一个正则表达式，去匹配一个字符串，得到匹配的次数，和匹配的结果
+      var s = "offer123offer123offer123";
+      var reg = /offer/g;
+      var n = 0;
+      while ((res = reg.exec(s))) {
+        n++;
+        console.log(`第${n}次匹配, 匹配结果:${res[0]}, 出现位置:${res.index}`);
+      }
+    </script>
+  </body>
+</html>

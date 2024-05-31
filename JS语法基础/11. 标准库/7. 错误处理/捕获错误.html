@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        a: 1,
+      };
+      try {
+        console.log(obj);
+        //遇到错误时立即停止执行, 执行catch的内容
+        //所以前面的console还是会被执行
+        a.abc();
+      } catch (e) {
+        //发生错误时才会执行
+        console.log(e);
+      } finally {
+        //finally是最终会被执行的内容(无论有没有错误)
+        console.log("over");
+      }
+    </script>
+  </body>
+</html>

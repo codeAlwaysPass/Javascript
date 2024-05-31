@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //反向引用：在正则表达式中，使用某个捕获组，`\捕获组编号`
+      //\1代表重复一次
+      var reg = /(\d{2})\1/;
+      var s = "13";
+      console.log(s.match(reg));
+
+      //找到字符串中连续出现的字符
+      var s = "aaaaaaaaasssssscccccceeeeefffgggggg";
+      var reg = /(\w)\1+/g;
+      while ((res = reg.exec(s))) {
+        console.log(res);
+      }
+
+      //也可以用名字来引用
+      var s = "aaaaaaaaasssssscccccceeeeefffgggggg";
+      var reg = /(?<char>\w)\k<char>+/g;
+      while ((res = reg.exec(s))) {
+        console.log(res);
+      }
+    </script>
+  </body>
+</html>

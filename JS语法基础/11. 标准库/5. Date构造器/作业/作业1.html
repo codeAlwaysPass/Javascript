@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //编写一个函数，用于返回一个友好的日期字符串格式
+      //年-月-日 时:分:秒
+      function getDateString(date) {
+        var year = date.getFullYear().toString().padStart(4, "0");
+        var month = (date.getMonth() + 1).toString().padStart(2, "0");
+        var day = date.getDay().toString().padStart(2, "0");
+
+        var hours = date.getHours().toString().padStart(2, "0");
+        var minutes = date.getMinutes().toString().padStart(2, "0");
+        var seconds = date.getSeconds().toString().padStart(2, "0");
+
+        return `${year}年-${month}月-${day}日 ${hours}:${minutes}${seconds}`;
+      }
+
+      var d = new Date();
+      console.log(getDateString(d));
+    </script>
+  </body>
+</html>

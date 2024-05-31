@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //创建一个正则表达式
+      var reg1 = /规则/g;
+      var reg2 = new RegExp("^\d+$", "g");
+
+      //也可以传正则表达式参数, 但reg1和reg3地址不一样, 如果不加new, 地址就是一样的
+      var reg3 = new RegExp(reg1);
+
+      //global判断是否开启全局判断
+      console.log(reg1.global, reg2.global);
+
+      //test验证某个字符串是否满足规则
+      var reg = /^\d+(\.?\d+)?$/g;
+      console.log(reg.test("123.2"));
+
+      //全局模式下, 同样的字符串重复匹配会匹配下一次的索引位置
+      //g是必须的前提条件
+      var reg = /abc/g;
+      s = "abcabcabcabc";
+      console.log(s, reg.lastIndex, reg.test("abcabcabcabc"));
+      console.log(s, reg.lastIndex, reg.test("abcabcabcabc"));
+      console.log(reg.test("abcabcabcabc"));
+      console.log(reg.test("abcabcabcabc"));
+      //匹配完就没有了
+      console.log(reg.test("abcabcabcabc"));
+
+      //判断匹配了多少处
+      var reg = /abc/g;
+      var s = "111abcabcabcabcabc";
+      var n = 0;
+      while (reg.test(s)) {
+        n++;
+      }
+      console.log(n);
+
+      //正则表达式默认情况下使用贪婪模式(尽可能多匹配)
+      var reg = /\d+/g;
+      var s = "123abcabc1234";
+      //会匹配123和1234
+      console.log(s, reg.lastIndex, reg.test(s));
+      console.log(s, reg.lastIndex, reg.test(s));
+      console.log(s, reg.lastIndex, reg.test(s));
+
+      //量词后面加上?, 表示非贪婪模式
+      var reg = /\d+?/g;
+      var s = "123abcabc1234";
+      //会匹配123和1234
+      console.log(s, reg.lastIndex, reg.test(s));
+      console.log(s, reg.lastIndex, reg.test(s));
+      console.log(s, reg.lastIndex, reg.test(s));
+
+      //exec执行匹配, 得到匹配结果
+      //返回一个真数组
+      //[匹配结果,group,这一次匹配开始的位置,输入]
+      var reg = /\d+/g;
+      var s = "123abcabc1234";
+      console.log(reg.exec(s));
+      console.log(reg.exec(s));
+      //匹配会收到lastIndex属性影响
+      reg.lastIndex = 0;
+      console.log(reg.exec(s));
+
+      var reg = /\d+/g;
+      var s = "123abc123abc123abc";
+      while (true) {
+        var result = reg.exec(s);
+        if (!result) {
+          break;
+        }
+        console.log(`匹配结果：${result[0]},出现位置：${result.index}`);
+      }
+    </script>
+  </body>
+</html>

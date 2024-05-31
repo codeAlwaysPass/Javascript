@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //只起到推断作用,并不会进入匹配结果
+      //这里是检查不满足条件的结果
+      var s = "sdfsdfsdf3434343434sdfsa545454dfsdfdfs";
+      var reg = /[a-zA-Z]+(?!\d+)/g;
+      while ((res = reg.exec(s))) {
+        //进来的只有字母, 数字只是检查, 不进入匹配结果
+        console.log(res);
+      }
+    </script>
+  </body>
+</html>

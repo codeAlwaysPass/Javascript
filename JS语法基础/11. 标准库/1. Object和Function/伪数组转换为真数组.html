@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //可以利用apply和call将伪数组转换为真数组
+      function test() {
+        console.log(arguments);
+        //将arguments转化为真数组
+        //slice也是[]中的一个函数属性,使用call改变slice中this的指向到arguments
+        var newArr = [].slice.call(arguments);
+        //var newArr = Array.prototype.slice.call(arguments);
+        //因为slice返回的是一个真数组, 所以现在成功将arguments变成了一个真数组
+        console.log(newArr);
+      }
+
+      test();
+
+      var newArr = [23, 12, 21].slice();
+      console.log(newArr);
+
+      test(23, 12, 21);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../../../../common/BetterFunction.js"></script>
+    <script>
+      //将一个字符串中单词之间的空格去掉，然后把每个单词首字母转换成大写
+      var s = "sac sdq wqdw sda";
+      s = s
+        .split(" ")
+        .filter(function (item) {
+          return item.length > 0;
+        })
+        .map(function (item) {
+          return item[0].toUpperCase() + item.substring(1).toLowerCase();
+        })
+        .join("");
+
+      console.log(s);
+    </script>
+  </body>
+</html>

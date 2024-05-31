@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //直接调用函数, 返回当前的时区和时间的标准字符串格式, 会忽略任何参数
+      console.log(Date());
+
+      //创建日期对象
+      //无参得到的是当前时间对象
+      var d = new Date();
+      console.log(d, typeof d);
+      //一个参数, 表示传入的是时间戳
+      //指1970年1.1凌晨加上1000毫秒
+      var d = new Date(1000);
+      console.log(d);
+      //两个参数以上, 分别表示:年、月、日、时、分、秒、毫秒
+      //月份是从0开始的
+      var d = new Date(2024, 4, 22);
+      console.log(d);
+      console.log(d.toISOString()); //国际标准格式
+
+      //月日时分秒毫秒均可以传递负数, 会根据指定日期进行计算
+      //表示从2024.1.1开始, 往前-一个月, -一天
+      var d = new Date(2024, -1, -1);
+      console.log(d);
+
+      //getDate得到日期部分
+      var d = new Date(); //5.30
+      console.log(d.getDate()); //得到30
+      //getUTCDate拿到格林威治时间
+      console.log(d.getUTCDate());
+      //getDay得到星期几, 0代表星期日
+      console.log(d.getDay());
+      //getFullYear得到年份
+      console.log(d.getFullYear());
+      //getMonth得到月份
+      console.log(d.getMonth());
+      //getHours得到小时
+      console.log(d.getHours());
+      //也有其他拿分钟,秒,毫秒等的方法
+      //getTime得到时间戳(ms)
+      console.log(d.getTime());
+
+      //设置日期中的某个部分
+      var d = new Date();
+      //设置日期
+      d.setDate(17);
+      console.log(d);
+      //设置月
+      d.setMonth(0);
+      console.log(d);
+      //设置年
+      d.setFullYear(-202);
+      console.log(d);
+      //setFullYear也可以设置年+月+日
+      d.setFullYear(2024, 4, 22);
+      console.log(d);
+
+      //将日期部分根据当前系统的地区设置转换为可读的字符串
+      var d = new Date();
+      console.log(d.toLocaleDateString()); //2024/5/30
+      console.log(d.toLocaleString()); //2024/5/30 21:21:58
+      console.log(d.toLocaleTimeString()); //21:22:12
+
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //要求密码中必须出现小写字母、大写字母、数字、特殊字符(!@#_,.)
+      var s = "2344dff34A.";
+      var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#_,.]).{6,12}$/;
+      console.log(reg.test(s));
+
+      //密码长度必须是6-12位
+      //出现小写字母、大写字母、数字、特殊字符 强
+      //出现小写字母、大写字母、数字 中
+      //出现小写字母、大写字母 轻
+      //其他不满足
+      function judgePwd(pwd) {
+        if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#_,.]).{6,12}$/.test(pwd)) {
+          console.log("强");
+        } else if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,12}$/.test(pwd)) {
+          console.log("中");
+        } else if (/^(?=.*[a-z])(?=.*[A-Z]).{6,12}$/.test(pwd)) {
+          console.log("轻");
+        } else {
+          console.log("不满足");
+        }
+      }
+
+      judgePwd("123AXx");
+    </script>
+  </body>
+</html>

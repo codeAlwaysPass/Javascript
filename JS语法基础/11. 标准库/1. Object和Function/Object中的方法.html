@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        x: 123,
+        y: "Asdadaw",
+        z: true,
+      };
+
+      //键, 获取obj对象所有属性名组成的数组
+      var n = Object.keys(obj);
+      console.log(n);
+
+      //值, 获取obj所有值的数组
+      n = Object.values(obj);
+      console.log(n);
+
+      //得到的是包含[key,value]数组的数组
+      n = Object.entries(obj);
+      console.log(n);
+
+      //也可以通过对象调用方法
+      //默认情况下,toString方法默认返回[object Object]
+      console.log(obj.toString());
+
+      //toString也可以被重写
+      obj.toString = function () {
+        return this.x + "," + this.y;
+      };
+
+      console.log(obj.toString());
+
+      //只要是对象, 都可以拥有Object的实例成员
+    </script>
+  </body>
+</html>

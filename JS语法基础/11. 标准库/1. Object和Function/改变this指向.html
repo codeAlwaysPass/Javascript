@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sayHello() {
+        console.log(this.name, this.age);
+      }
+
+      var user1 = {
+        name: "law",
+        age: 12,
+      };
+
+      var user2 = {
+        name: "csa",
+        age: 99,
+      };
+
+      //此时不能直接调用user1.sayHello, 因为没有这个属性
+      //在不改变user1属性的情况下, 改变this的指向来使用sayHello输出user1的name和age
+
+      //使用apply或call改变this的指向
+      //apply调用函数, 同时指定函数中的this指向
+      //此时this的指向为user1
+      sayHello.apply(user1);
+      //此时this的指向为user2
+      sayHello.apply(user2);
+
+      function sayHello2(a, b) {
+        console.log(this.name, this.age);
+        console.log(a, b);
+      }
+
+      //apply的参数以数组传递
+      sayHello2.apply(user1, [1, 2]);
+      //call的第一个参数和apply一样,参数以列表传递
+      sayHello2.call(user2, 1, 2);
+
+      //bind返回一个新函数, this指向就固定了
+      var newFunction = sayHello2.bind(user2, 1,2);
+      newFunction();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getDateString(date) {
+        var year = date.getFullYear().toString().padStart(4, "0");
+        var month = (date.getMonth() + 1).toString().padStart(2, "0");
+        var day = date.getDate().toString().padStart(2, "0");
+
+        var hours = date.getHours().toString().padStart(2, "0");
+        var minutes = date.getMinutes().toString().padStart(2, "0");
+        var seconds = date.getSeconds().toString().padStart(2, "0");
+
+        return `${year}年${month}月${day}日 ${hours}时${minutes}分${seconds}秒`;
+      }
+
+      var date = new Date();
+      console.log(getDateString(date));
+    </script>
+  </body>
+</html>

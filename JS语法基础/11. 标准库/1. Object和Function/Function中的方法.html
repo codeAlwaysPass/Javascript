@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //arguments返回一个伪数组, 就是没有通过Array构造函数创建的类似于数组结构的对象
+      //伪数组中会缺少大量的数组实例方法
+      function test(a, b) {
+        console.log(a, b);
+        console.log(arguments);
+      }
+
+      test(1, 2);
+      //arguments可以取到多余的参数
+      test(1, 2, 3, 1);
+
+      //arguments数组中的值会和多余的形参映射
+      //映射是在函数最开始发生的
+      function test2(a, b) {
+        arguments[0] = "abc";
+        b = 123;
+
+        console.log(a, b);
+        console.log(arguments);
+      }
+      //arguments中的a和b都会变化
+      //arguments在函数开始执行时就开始映射, arguments[0] = 1, arguments[1] = 2
+      test2(1, 2);
+
+      //但如果都没有传参数, 则无法映射到。arguments[0] = "abc"算是直接赋值, arguments[1]也不再是b了
+      test2();
+
+      //function.length得到的是形参数量
+      console.log(test2.length);
+
+      //function.name返回的是函数名或变量名(如果这个变量赋值了一个匿名函数)
+      var test = function () {};
+      //输出test
+      console.log(test.name);
+      var test = function abc() {};
+      //输出abc
+      console.log(test.name);
+    </script>
+  </body>
+</html>

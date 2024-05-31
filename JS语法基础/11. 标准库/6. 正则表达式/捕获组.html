@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //用()包裹的部分叫做捕获组
+      var reg = /(\d[a-z])([a-z]+)[a-z]/g;
+      var s = "2afsdf-5fdgdfg-9asddf";
+      while ((res = reg.exec(s))) {
+        //res现在多了一项,第二项代表捕获组,表示()里捕获到了什么东西
+        console.log(res);
+      }
+
+      var s = "2015-5-1, 2019-6-19, 2000-04-28";
+      //得到每一个日期, 并得到每一个日期的年月日
+      var reg = /(\d{4})-(\d{1,2})-(\d{1,2})/g;
+      while ((res = reg.exec(s))) {
+        console.log(res);
+        console.log(`${res[1]}年${res[2]}月${res[3]}日`);
+      }
+
+      //捕获顺序按照从左到右
+
+      //给捕获组命名, 叫做具名捕获组。?<***>命名捕获组
+      var reg = /(?<year>\d{4})-(?<month>\d{1,2})-(?<day>\d{1,2})/g;
+      while ((res = reg.exec(s))) {
+        console.log(res);
+        console.log(`${res[1]}年${res[2]}月${res[3]}日`);
+      }
+      //?:声明一个非捕获组
+
+      //replace结合捕获组
+      var s = "2015-5-1, 2019-6-19, 2000-04-28";
+      var reg = /(\d{4})-(\d{1,2})-(\d{1,2})/g;
+      //把-转为/
+      s = s.replace(reg, function (match, g1, g2, g3) {
+        console.log(match, g1, g2, g3);
+        return `${g1}/${g2}/${g3}`;
+      });
+      console.log(s);
+
+      //$n表示第n个捕获组,可以在reolace的第二个参数里直接使用
+      var s = "2015-5-1, 2019-6-19, 2000-04-28";
+      var reg = /(\d{4})-(\d{1,2})-(\d{1,2})/g;
+      s = s.replace(reg, "$1/$2/$3");
+      console.log(s);
+    </script>
+  </body>
+</html>
