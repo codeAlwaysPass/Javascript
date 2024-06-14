@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        width: 100px;
+        height: 100px;
+        background: gray;
+      }
+
+      .red {
+        background: red !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item red" style="background: blue"></div>
+    <script>
+      var div = document.querySelector(".item");
+      div.onclick = function () {
+        //toggle, 如果有则移除, 如果没有则添加
+        this.classList.toggle("red");
+      };
+
+      //dom.style得到行内样式对象
+      console.log(div.style.background);
+
+      //window.getComputedStyle得到最终计算的样式
+      console.log(window.getComputedStyle(div));
+    </script>
+  </body>
+</html>

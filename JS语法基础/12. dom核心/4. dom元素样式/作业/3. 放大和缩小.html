@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .container {
+        overflow: hidden;
+        border: 2px solid;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        line-height: 200px;
+        text-align: center;
+        font-size: 100px;
+        font-family: 宋体;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">袁</div>
+    <p>
+      <button>放大</button>
+      <button>缩小</button>
+    </p>
+
+    <script>
+      var btns = document.querySelectorAll("button");
+      var largerBtn = btns[0];
+      var smallerBtn = btns[1];
+
+      var div = document.querySelector(".container");
+
+      //得到当前字体大小
+      var count = parseInt(getComputedStyle(div).fontSize);
+
+      largerBtn.onclick = function () {
+        div.style.fontSize = `${(count += 25)}px`;
+      };
+
+      smallerBtn.onclick = function () {
+        if (count - 25 <= 0) {
+          return;
+        }
+        div.style.fontSize = `${(count -= 25)}px`;
+      };
+    </script>
+  </body>
+</html>

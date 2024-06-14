@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      div {
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="btn">click</button>
+
+      <button id="btn-remove">移除事件</button>
+    </div>
+
+    <script>
+      var btn = document.getElementById("btn");
+      var div = document.querySelector("div");
+
+      function handler1() {
+        console.log("btn1");
+      }
+
+      function handler2() {
+        console.log("btn2");
+      }
+      //使用addEventListner(事件名称,处理函数)注册事件
+      //使用dom2可以同时注册相同类型的多个事件
+      //对于同一个元素, 运行次序是按照注册的先后顺序依次运行
+
+      //这段代码的输出顺序遵循冒泡和注册顺序(1,2,div)
+      btn.addEventListener("click", handler1);
+
+      /*div.addEventListener("click", function () {
+        console.log("div冒泡");
+      });*/
+
+      //也可以在第三个参数加入一些对象配置
+      btn.addEventListener("click", handler2, { once: true });
+
+      //addEventListener支持第三个参数, 表示是否在捕获阶段触发
+      //如果元素是目标元素(如button), 第三个参数无效
+      div.addEventListener(
+        "click",
+        function () {
+          console.log("div冒泡");
+        },
+        false
+      );
+
+      function divHandler() {
+        console.log("div捕获");
+      }
+
+      div.addEventListener("click", divHandler, true);
+
+      //使用removeEventListener(事件名,函数名),移除事件
+      //dom2如果要移除事件, 无法移除一个匿名函数
+      //remove也可以传对象
+      var removeBtn = document.getElementById("btn-remove");
+      removeBtn.addEventListener("click", function () {
+        btn.removeEventListener("click", handler1);
+        //如果不加对象, 默认无法移除捕获阶段的事件
+        div.removeEventListener("click", divHandler, { capture: true });
+      });
+    </script>
+  </body>
+</html>

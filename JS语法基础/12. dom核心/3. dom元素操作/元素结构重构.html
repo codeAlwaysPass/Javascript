@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="ul1">
+      <li>选项1-1</li>
+      <li>选项1-2</li>
+      <li>选项1-3</li>
+      <li>选项1-4</li>
+      <li>选项1-5</li>
+    </ul>
+    <ul id="ul2">
+      <li>选项2-1</li>
+      <li>选项2-2</li>
+      <li>选项2-3</li>
+      <li>选项2-4</li>
+      <li>选项2-5</li>
+    </ul>
+
+    <script>
+      var li14 = ul1.getElementsByTagName("li")[3];
+      var li2 = ul1.getElementsByTagName("li")[4];
+      var li2_2 = ul2.getElementsByTagName("li")[1];
+      //ul1中的1-4会消失, 加入到ul2中
+      //同一个对象不能同时出现
+      //ul2.appendChild(li1);
+      //append一次可以填多个但尽量不要用
+      //ul2.append(li1, li2);
+      //父元素.insertBefore(待插入的元素,哪个元素之前)
+      ul2.insertBefore(li14, li2_2);
+      //通过修改insertBefore里面的参数, 改成向后插入
+      ul2.insertBefore(li14, li2_2.nextElementSibling);
+      //replaceChild替换元素
+      ul2.replaceChild(li14, li2_2);
+    </script>
+  </body>
+</html>

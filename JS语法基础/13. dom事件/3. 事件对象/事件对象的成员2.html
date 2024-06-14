@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>Lorem, ipsum dolor.<button>删除</button></p>
+      <p>Mollitia, aliquid saepe?<button>删除</button></p>
+      <p>Odit, minus mollitia!<button>删除</button></p>
+      <p>Natus, odit accusantium.<button>删除</button></p>
+      <p>Architecto, unde ut.<button>删除</button></p>
+      <p>Deleniti, eos animi?<button>删除</button></p>
+      <p>Suscipit, harum consectetur.<button>删除</button></p>
+      <p>At, asperiores enim.<button>删除</button></p>
+      <p>Doloremque, consectetur consequatur.<button>删除</button></p>
+      <p>Fugit, numquam eligendi.<button>删除</button></p>
+    </div>
+
+    <script>
+      var div = document.querySelector("div");
+      div.onclick = function (e) {
+        //tagName得到元素名称
+        if (e.target.tagName === "BUTTON") {
+          e.target.parentElement.remove();
+
+          //type得到事件类型
+          console.log(e.type);
+        }
+      };
+    </script>
+  </body>
+</html>

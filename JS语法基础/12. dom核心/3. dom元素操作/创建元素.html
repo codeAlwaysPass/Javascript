@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque deserunt
+        aperiam, dolores quidem nobis eligendi repellendus magni aliquid ratione
+        vitae fugiat consectetur placeat vel? Itaque officiis quia sapiente
+        libero sint.
+      </li>
+      <li>
+        Ratione natus soluta assumenda corporis excepturi saepe reiciendis odio
+        modi numquam, quidem suscipit nostrum id, perspiciatis iure repellendus
+        autem. Doloribus adipisci quasi vero deleniti ex aperiam iusto obcaecati
+        ullam omnis.
+      </li>
+      <li>
+        Ex, rerum in, numquam odit ducimus, quia officia eligendi similique
+        repellendus ullam fuga? Ipsa dignissimos excepturi accusamus, voluptatem
+        odio ut quaerat eius beatae nobis maiores mollitia quibusdam
+        perferendis! Ipsam, eligendi!
+      </li>
+      <li>
+        Pariatur vero, ipsum mollitia impedit soluta consequatur laborum
+        excepturi error, eius nesciunt dolorum accusamus repellendus
+        exercitationem fugit architecto. Vero harum quasi, perspiciatis amet
+        neque excepturi error ab omnis dolor incidunt.
+      </li>
+      <li>
+        Exercitationem libero perspiciatis aspernatur molestiae adipisci quo
+        quibusdam repudiandae asperiores laborum quisquam rem fugiat facere
+        distinctio consequatur quam, omnis suscipit optio voluptatum hic
+        obcaecati, maxime quia pariatur inventore quae. Molestiae?
+      </li>
+      <li>
+        Provident iure numquam cupiditate optio sunt laboriosam, aspernatur,
+        harum, et amet quaerat rerum veritatis reiciendis nemo? Sunt molestiae,
+        fugit ducimus dolorum recusandae labore, accusantium voluptate magnam
+        voluptatum, commodi hic officia?
+      </li>
+      <li>
+        Consequuntur ipsam autem sint eum ullam, incidunt numquam! Nobis
+        mollitia similique inventore velit accusantium id dolores dolore
+        voluptatum dolorem magnam, tenetur ipsa recusandae! Amet molestias
+        doloribus, dolorem placeat mollitia blanditiis.
+      </li>
+      <li>
+        Perspiciatis, soluta? Aliquid accusantium commodi rem possimus minus!
+        Aliquam, sint veniam architecto, ab voluptas magnam, provident
+        laudantium at recusandae tempora vero neque odit quas? Sapiente in quos
+        eveniet laborum aperiam?
+      </li>
+      <li>
+        In id consectetur aliquid delectus officiis consequatur, ab odio quam
+        numquam maiores quia hic reiciendis neque ea inventore quos. Quam sunt
+        quos at suscipit atque, ad quod aut non ullam.
+      </li>
+      <li>
+        Quia ratione ea illum quas placeat sequi sint beatae aspernatur, totam
+        quam perspiciatis odit reprehenderit neque, alias iusto ipsam fuga
+        laboriosam veritatis tenetur in voluptatem, dolorum sed perferendis
+        magni? Fugit!
+      </li>
+    </ul>
+    <script>
+      //creatElement创建一个元素
+      var newli = document.createElement("li");
+      newli.innerHTML = "程序创建的li元素";
+      var ul = document.querySelector("ul");
+      ul.appendChild(newli);
+      //createTextNode创建文本节点
+      var txt = document.createTextNode("abc");
+      newli.appendChild(txt);
+      //createDocumentFragment创建文档片段
+      //第一种方法是循环添加, 但是效率较低, 需要一次性更改的方法
+      for (var i = 0; i < 5; i++) {
+        var li = document.createElement("li");
+        li.innerHTML = `标签${i + 1}`;
+        ul.appendChild(li);
+      }
+      var fragment = document.createDocumentFragment();
+      for (var i = 0; i < 5; i++) {
+        var li = document.createElement("li");
+        li.innerHTML = `标签${i + 1}`;
+        fragment.appendChild(li);
+      }
+      ul.appendChild(fragment);
+    </script>
+  </body>
+</html>

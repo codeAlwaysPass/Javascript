@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        width: 100px;
+        height: 100px;
+      }
+      .red {
+        background: red;
+      }
+
+      .blue {
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item red"></div>
+    <script>
+      //来回切换的判断比较麻烦
+      var div = document.querySelector("div");
+      /*div.onclick = function () {
+        if (this.className === "red") {
+          this.className = "blue";
+        } else {
+          this.className = "red";
+        }
+      };*/
+
+      //使用正则表达式匹配, 也非常麻烦
+      /*div.onclick = function () {
+        if (this.className.search(/\bred\b/) !== -1) {
+          this.className = this.className.replace(/\bred\b/, "blue");
+        } else {
+          this.className = this.className.replace(/\bblue\b/, "red");
+        }
+      };*/
+
+      //使用classList
+      div.onclick = function () {
+        if (this.classList.contains("red")) {
+          this.classList.remove("red");
+          this.classList.add("blue");
+        } else {
+          this.classList.remove("blue");
+          this.classList.add("red");
+        }
+      };
+    </script>
+  </body>
+</html>

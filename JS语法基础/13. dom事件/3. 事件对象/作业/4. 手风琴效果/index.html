@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      .wrap {
+        width: 120px;
+        border: 1px solid black;
+        text-align: center;
+        line-height: 25px;
+      }
+
+      .title {
+        background-color: tomato;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap" id="wrap">
+      
+    </div>
+    <script src="./index.js"></script>
+
+    <script>
+      var menu = [
+        {
+          name: "菜单一",
+          children: ["商品一", "商品二", "商品三", "商品四"],
+        },
+        {
+          name: "菜单二",
+          children: ["商品一", "商品二", "商品三", "商品四"],
+        },
+        {
+          name: "菜单三",
+          children: ["商品一", "商品二", "商品三", "商品四"],
+        },
+      ];
+
+      var div = document.querySelector("div");
+      var dl = document.createElement("dl");
+
+      menu.forEach(function (value, index) {
+        var dt = document.createElement("dt");
+        dt.className = "title";
+        dt.setAttribute("_id", (index + 1).toString());
+        dt.innerHTML = value.name;
+        var dd = document.createElement("dd");
+        for (var i = 0; i < value.children.length; i++) {
+          var p = document.createElement("p");
+          p.innerHTML = value.children[i];
+          dd.appendChild(p);
+        }
+
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+      });
+
+      div.appendChild(dl);
+    </script>
+  </body>
+</html>

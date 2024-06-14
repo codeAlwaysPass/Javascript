@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button>click</button>
+    </div>
+
+    <script>
+      //发生在一个元素的事件也会被它的祖先元素监听到
+      //触发顺序默认是事件冒泡的顺序(从内到外)
+      document.querySelector("button").onclick = function () {
+        console.log("button");
+      };
+
+      document.querySelector("div").onclick = function () {
+        console.log("div");
+      };
+
+      document.body.onclick = function () {
+        console.log("body");
+      };
+
+      document.documentElement.onclick = function () {
+        console.log("html");
+      };
+
+      document.onclick = function () {
+        console.log("document");
+      };
+    </script>
+  </body>
+</html>

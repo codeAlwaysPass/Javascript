@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <p>
+      <input type="text" />
+      <button>添加</button>
+    </p>
+    <ul>
+      <li>
+        <span>列表1</span>
+        <button>删除</button>
+      </li>
+      <li>
+        <span>列表2</span>
+        <button>删除</button>
+      </li>
+      <li>
+        <span>列表3</span>
+        <button>删除</button>
+      </li>
+    </ul>
+
+    <script>
+      var ul = document.querySelector("ul");
+      var ipt = document.querySelector("input");
+      var btn = document.querySelector("p button");
+
+      var btns = document.querySelectorAll("li button");
+
+      Array.from(btns).forEach(function (b) {
+        b.onclick = function (e) {
+          e.target.parentElement.remove();
+        };
+      });
+
+      btn.onclick = function (e) {
+        var li = document.createElement("li");
+        var span = document.createElement("span");
+        var button = document.createElement("button");
+
+        span.innerHTML = ipt.value;
+        button.innerHTML = "删除";
+
+        button.onclick = function (e) {
+          e.target.parentElement.remove();
+        };
+
+        li.appendChild(span);
+        li.appendChild(button);
+        ul.append(li);
+
+        ipt.value = "";
+      };
+    </script>
+  </body>
+</html>

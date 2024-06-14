@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .div1 {
+        width: 300px;
+        height: 300px;
+        border: 2px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">
+      hello world
+      <span>hihihi</span>
+    </div>
+    <script>
+      //获取和设置元素内部的html文本
+      var div1 = document.querySelector(".div1");
+      console.log(div1.innerHTML);
+
+      //获取和设置元素内部的纯文本, 仅得到元素内部显示出来的文本, IE6IE7不兼容
+      //innerText得到的是显示的东西, display:none的内容无法得到
+      console.log(div1.innerText);
+
+      //获取和设置元素内部的纯文本，textContent得到的是内部源代码中的文本(保留了换行、空格)
+      console.log(div1.textContent);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 不建议把事件注册在元素内部 -->
+    <button id="btn1" onclick="console.log('abc')">点击</button>
+
+    <script>
+      var btn = document.getElementById("btn1");
+      //通过重新给事件属性赋值来移除注册
+      btn.onclick = undefined;
+    </script>
+  </body>
+</html>

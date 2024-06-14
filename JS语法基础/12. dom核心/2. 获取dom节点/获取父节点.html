@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="list">
+        <li>
+          <a href=""
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+            omnis quo minus distinctio sapiente libero quis? Reiciendis,
+            corporis exercitationem totam expedita, eaque minus assumenda, nobis
+            nihil delectus accusamus laborum eum?</a
+          >
+        </li>
+        <li>
+          <span></span>
+          <a href="" title="sdad"
+            >Optio, vero veniam consequuntur adipisci accusamus quisquam et
+            incidunt perferendis modi fuga ea? Qui porro, hic fugiat quas
+            reprehenderit alias odio autem iure, voluptas corporis repellat nam
+            ab exercitationem ut.</a
+          >
+        </li>
+        <li>
+          <a href=""
+            >Eius quidem, quis assumenda omnis temporibus modi exercitationem?
+            Praesentium labore nihil voluptatem dolorem atque, inventore
+            asperiores assumenda facere placeat perspiciatis ipsum tempora
+            repellendus molestias nulla sapiente cumque debitis quis autem?</a
+          >
+        </li>
+        <li>
+          <a href=""
+            >Maxime voluptate adipisci iste doloribus, porro vero qui saepe ex
+            quos blanditiis eos ipsum nostrum minus sed ratione! Tempore
+            explicabo, eligendi dolorum deserunt exercitationem soluta
+            consequuntur nemo officia accusantium quasi.</a
+          >
+        </li>
+        <li>
+          <a href=""
+            >Recusandae fugiat autem amet, laboriosam eaque voluptatibus neque
+            minus blanditiis vel. Numquam hic at accusantium incidunt odio
+            officiis esse quae, cum dolorem et repellendus, minima magnam
+            aperiam ratione molestiae officia.</a
+          >
+        </li>
+        <li>
+          <a href=""
+            >Itaque adipisci qui, harum laudantium eaque voluptate, aut nostrum,
+            cupiditate sit odio assumenda. Sapiente optio sed neque perferendis
+            ullam! Reprehenderit impedit tempore laudantium sunt eius quasi quam
+            ullam necessitatibus illum!</a
+          >
+        </li>
+        <li>
+          <a href=""
+            >Corporis culpa assumenda ullam illo, id ipsa quidem eligendi vel
+            voluptas. Libero vero iure eligendi accusamus commodi neque eius
+            omnis, dolorum incidunt quaerat in architecto eos nobis unde
+            repudiandae. Vero!</a
+          >
+        </li>
+        <li>
+          <a href=""
+            >Ipsum architecto libero soluta enim iste similique eveniet
+            veritatis sapiente commodi ipsam in odio porro quae magnam
+            asperiores, atque, nulla ex distinctio. Excepturi, eligendi quam
+            similique debitis facere earum repellendus.</a
+          >
+        </li>
+        <li>
+          <a href=""
+            >Rerum laborum molestias exercitationem, quo alias aut reprehenderit
+            repudiandae quaerat quibusdam deserunt quidem, ex dolor. Autem ab
+            officiis quis eius in repellat facilis ducimus ea repudiandae,
+            debitis voluptas, blanditiis velit.</a
+          >
+        </li>
+        <li>
+          <a href=""
+            >Facilis soluta blanditiis mollitia debitis aliquam, dolores minima
+            esse placeat, libero minus, enim ipsa molestiae necessitatibus quos
+            aut eos sapiente recusandae et cum quod. Rerum maxime reprehenderit
+            ipsum officiis natus.</a
+          >
+        </li>
+      </ul>
+    </div>
+    <script>
+      var a = document.getElementsByTagName("a")[1];
+      //获取属性名称
+      console.log(a.attributes);
+      console.log(a.attributes[1].nodeValue);
+      //使用parentNode获取父节点
+      console.log(a.parentNode); //li
+      console.log(a.parentNode.parentNode); //ul
+      //获取前一个兄弟元素, 获取下一个是nextSibling
+      console.log(a.previousSibling); //是a紧挨着前面的, 如果是空格, 会被当作文本节点
+      console.log(a.previousSibling.previousSibling); //span
+      //获取根元素
+      console.log(document.documentElement);
+      console.log(document.documentElement.previousSibling); //文档说明节点
+      //获取所有的子节点
+      var ul = document.querySelector("ul");
+      console.log(ul.childNodes);
+      //获取第一个、最后一个子节点
+      console.log(ul.firstChild);
+      console.log(ul.lastChild);
+      //获取节点的健壮性不够, 所以js提供了获取元素节点的方法
+      console.log(ul.parentElement);
+      console.log(ul.children);
+      console.log(ul.firstElementChild);
+      console.log(ul.lastElementChild);
+      //获取节点名称, 元素节点名称全部是大写
+      console.log(document.nodeName, ul.nodeName);
+    </script>
+  </body>
+</html>

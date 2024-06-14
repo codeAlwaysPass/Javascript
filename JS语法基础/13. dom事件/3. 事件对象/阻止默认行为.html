@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://www.baidu.com">百度</a>
+
+    <form action="https://www.taobao.com">
+      <p><input type="text" name="account" /></p>
+      <p><button>提交</button></p>
+    </form>
+
+    <script>
+      var a = document.querySelector("a");
+      var btn = document.querySelector("button");
+      //此时a元素的默认行为是跳转到一个新的页面
+      a.addEventListener("click", function (e) {
+        //阻止浏览器的默认跳转行为
+        e.preventDefault();
+        console.log("被点击了");
+      });
+      //form中的按钮也有默认行为(按钮默认的类型是提交)
+      btn.onclick = function (e) {
+        e.preventDefault();
+        //dom0阻止默认行为的额外方式
+        //在事件处理程序中返回false
+        return false;
+      };
+    </script>
+  </body>
+</html>

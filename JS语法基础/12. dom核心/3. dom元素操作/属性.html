@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 150px;
+        height: 150px;
+        border: 2px solid;
+        object-fit: contain;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" value="abcds" />
+    <input type="checkbox" id="cbgender" checked="checked" /><label
+      for="cbgender"
+      >男</label
+    >
+    <select>
+      <option value="chengdu">成都</option>
+      <option value="beijing" selected>北京</option>
+      <option value="chengdu">上海</option>
+    </select>
+
+    <button id="btnGetTxt">获取文本框内容</button>
+    <button id="btnSetTxt">设置文本框内容</button>
+    <img src="1.jpg" />
+
+    <!-- div本身没有value属性, 所以这不是一个正常的可识别属性 -->
+    <div value="abcds" data-abc="123" data-bcd="234
+    "></div>
+    <script>
+      document.getElementById("btnGetTxt").onclick = function () {
+        var input = document.querySelector("input[type=text]");
+        var div = document.querySelector("div");
+        console.log(input.value, div.value); //abcds,undefined
+      };
+
+      document.getElementById("btnSetTxt").onclick = function () {
+        var input = document.querySelector("input[type=text]");
+        var div = document.querySelector("div");
+        input.value = "new Value";
+        div.value = "abcde"; //此时div的value就成了可以被读取的属性了
+      };
+
+      var i = 1;
+      var img = document.querySelector("img");
+      img.onclick = function () {
+        i++;
+        if (i == 3) {
+          i = 1;
+        }
+        img.src = `${i}.jpg`;
+      };
+
+      var sel = document.querySelector("select");
+      //select的value是当前选中的option的value
+      //但select本身不默认有value属性
+      console.log(sel.value);
+
+      var option = sel.querySelectorAll("option");
+      console.log(option);
+
+      //也可以通过getAttribute(必须是书写过的属性)得到属性
+      var ipt = document.querySelector("input[type=checkbox]");
+      //输出checkbox,null
+      console.log(ipt.getAttribute("type"), ipt.getAttribute("value"));
+
+      var cb = document.querySelector("input[type=checkbox]");
+      //返回的是布尔值
+      console.log(cb.checked);
+
+      //可以用setAttribute快速设定属性
+      var div = document.querySelector("div");
+      div.setAttribute("abc", "123");
+      //自定义属性不会自动成为dom对象的属性, 所以直接console.log(div.abc)返回的是undefined
+      console.log(div.getAttribute("abc"));
+
+      //自定义的属性可以加上data-前缀, 可以通过dataset调用
+      console.log(div.dataset); //得到一个对象
+    </script>
+  </body>
+</html>

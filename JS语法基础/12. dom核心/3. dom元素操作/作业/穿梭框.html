@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .container {
+        overflow: hidden;
+        width: 550px;
+        margin: 0 auto;
+      }
+
+      .container .left {
+        float: left;
+        margin: 0 30px;
+      }
+
+      .container select {
+        width: 100%;
+        height: 200px;
+      }
+
+      .container .mid {
+        padding-top: 70px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="left">
+        <h2>成哥的现任女友</h2>
+        <select id="sel1" multiple>
+          <option value="1">幂幂</option>
+          <option value="2">花花</option>
+          <option value="3">春春</option>
+          <option value="4">盈盈</option>
+          <option value="5">红红</option>
+        </select>
+      </div>
+      <div class="left mid">
+        <p>
+          <button title="右移动选中的">&gt;&gt;</button>
+        </p>
+        <p>
+          <button title="右移动全部">&gt;&gt;|</button>
+        </p>
+        <p>
+          <button title="左移动选中的">&lt;&lt;</button>
+        </p>
+        <p>
+          <button title="左移动全部">|&lt;&lt;</button>
+        </p>
+      </div>
+      <div class="left">
+        <h2>成哥的前女友</h2>
+        <select id="sel2" multiple>
+          <option value="6">坤坤</option>
+        </select>
+      </div>
+    </div>
+
+    <script>
+      var leftChildren = sel1.children;
+      var rightChildren = sel2.children;
+      var rightShift1Btn = document.querySelectorAll("button")[0];
+      var rightShiftAllBtn = document.querySelectorAll("button")[1];
+      var leftShift1Btn = document.querySelectorAll("button")[2];
+      var leftShiftAllBtn = document.querySelectorAll("button")[3];
+
+      function getSelectedOption(sel) {
+        var opts = [];
+        for (var i = 0; i < sel.children.length; i++) {
+          if (sel.children[i].selected) {
+            opts.push(sel.children[i]);
+          }
+        }
+        return opts;
+      }
+
+      rightShift1Btn.onclick = function () {
+        if (leftChildren.length > 0) {
+          var child = getSelectedOption(sel1);
+          Array.from(child).forEach(function (child) {
+            sel2.appendChild(child);
+          });
+        }
+      };
+
+      rightShiftAllBtn.onclick = function () {
+        if (leftChildren.length > 0) {
+          Array.from(leftChildren).forEach(function (child) {
+            sel2.appendChild(child);
+          });
+        }
+      };
+
+      leftShift1Btn.onclick = function () {
+        if (rightChildren.length > 0) {
+          var child = getSelectedOption(sel2);
+          Array.from(child).forEach(function (child) {
+            sel1.appendChild(child);
+          });
+        }
+      };
+
+      leftShiftAllBtn.onclick = function () {
+        if (rightChildren.length > 0) {
+          Array.from(rightChildren).forEach(function (child) {
+            sel1.append(child);
+          });
+        }
+      };
+    </script>
+  </body>
+</html>

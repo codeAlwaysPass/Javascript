@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        background: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <button>点击</button>
+    <div>
+      <button>Lorem.</button><button>Atque?</button><button>Libero.</button
+      ><button>At!</button><button>Repellendus?</button><button>Ipsam.</button
+      ><button>Tenetur.</button><button>Illo.</button><button>Nam?</button
+      ><button>Quis?</button>
+    </div>
+
+    <script>
+      var btn = document.querySelector("button");
+      btn.onclick = function (e) {
+        //防止兼容性问题, IE8以下使用window.target
+        e = e || window.event;
+        //事件的目标对象(处于目标阶段的源对象)
+        console.log(e.target);
+      };
+
+      //事件委托: 通过给祖先元素注册事件侦测哪个子元素是目标元素
+      var div = document.querySelector("div");
+      div.onclick = function (e) {
+        console.log(e.target);
+      };
+    </script>
+  </body>
+</html>
