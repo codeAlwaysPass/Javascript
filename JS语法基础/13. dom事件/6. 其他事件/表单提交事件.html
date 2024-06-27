@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="https://www.taobao.com">
+      <p>
+        <input type="text" placeholder="请输入账号" />
+      </p>
+      <button>按钮1</button>
+      <button>按钮2</button>
+    </form>
+
+    <script>
+      //form中的按钮有默认提交行为
+      var form = document.querySelector("form");
+      var inp = document.querySelector("input");
+
+      //submit事件是可以冒泡的
+      form.onsubmit = function (e) {
+        console.log(e.bubbles);
+        //阻止默认的发送行为, 也可以用e.preventDefault()
+        if (!inp.value.trim()) {
+          return false;
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>按钮</button>
+    <script>
+      var btn = document.querySelector("button");
+      //是否按下某些功能键
+      btn.onclick = function (e) {
+        console.log(e.altKey);
+        console.log(e.ctrlKey);
+        console.log(e.shiftKey);
+        //表示触发时按下的鼠标按键类型, 0左 1中 2右
+        console.log(e.button);
+      };
+    </script>
+  </body>
+</html>

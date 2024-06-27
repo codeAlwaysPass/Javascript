@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 300px;
+        height: 200px;
+        background: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button>点击</button>
+    </div>
+
+    <script>
+      var div = document.querySelector("div");
+      var btn = document.querySelector("button");
+
+      //从div移动到按钮, 进入 -> 离开 -> 进入
+      //因为从div到按钮是先离开div元素, 再进入按钮元素的, 第二次的进入是按钮冒泡给div元素的
+      div.onmouseover = function () {
+        console.log("进入: over");
+      };
+      div.onmouseout = function () {
+        console.log("离开: over");
+      };
+
+      //要是给btn阻止冒泡, 那么第二次进入就没有了
+      btn.onmouseover = function (e) {
+        e.stopPropagation();
+      };
+
+      //enter和leave移动入按钮时, 不会触发mouseleave事件, 因为按钮是div的子元素
+      div.onmouseenter = function () {
+        console.log("进入: enter");
+      };
+      div.onmouseleave = function () {
+        console.log("离开: enter");
+      };
+
+      //over和out不考虑子元素, enter和leave考虑子元素。enter和leave不会冒泡。
+    </script>
+  </body>
+</html>

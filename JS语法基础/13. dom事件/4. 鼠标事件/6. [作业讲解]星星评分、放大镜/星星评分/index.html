@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .left {
+        float: left;
+        margin-left: 10px;
+        line-height: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="divstars" class="left">
+      <img src="images/empty.png" alt="" />
+      <img src="images/empty.png" alt="" />
+      <img src="images/empty.png" alt="" />
+      <img src="images/empty.png" alt="" />
+      <img src="images/empty.png" alt="" />
+    </div>
+    <div id="divword" class="left"></div>
+
+    <script>
+      var words = ["满意", "一般满意", "还不错", "很满意", "非常满意"];
+      var divstars = document.getElementById("divstars");
+      var divword = document.getElementById("divword");
+      var star = 0;
+
+      divstars.onmouseover = function (e) {
+        if (e.target.tagName === "IMG") {
+          e.target.src = "images/shining.png";
+          //处理之前的元素
+          var prev = e.target.previousElementSibling;
+          while (prev) {
+            prev.src = "images/shining.png";
+            prev = prev.previousElementSibling;
+          }
+          //处理之后的元素
+          var next = e.target.nextElementSibling;
+          while (next) {
+            next.src = "images/empty.png";
+            next = next.nextElementSibling;
+          }
+          //处理文字
+          var index = Array.from(divstars.children).indexOf(e.target);
+          divword.innerHTML = words[index];
+        }
+      };
+
+      divstars.onmouseleave = function (e) {
+        if (star === 0) {
+          Array.from(divstars.children).forEach(function (c) {
+            c.src = "images/empty.png";
+          });
+          divword.innerHTML = "";
+        } else {
+          var index = star - 1;
+          divword.innerHTML = words[index];
+        }
+      };
+
+      divstars.onclick = function (e) {
+        if (e.target.tagName === "IMG") {
+          var index = Array.from(divstars.children).indexOf(e.target);
+          star = index + 1;
+        }
+      };
+    </script>
+  </body>
+</html>

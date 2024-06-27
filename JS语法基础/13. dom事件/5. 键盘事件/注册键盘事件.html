@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+        <input type="text">
+    </div>
+
+    <script>
+      var div = document.querySelector("div");
+      //div无法聚焦, 所以无法注册键盘事件
+      div.onkeydown = function (e) {
+        console.log(e);
+      };
+    </script>
+  </body>
+</html>

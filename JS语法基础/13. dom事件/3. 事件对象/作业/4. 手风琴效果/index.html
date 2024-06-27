@@ -4,27 +4,29 @@
     <meta charset="UTF-8" />
     <title>Document</title>
     <style>
-      * {
-        padding: 0;
+      ul {
         margin: 0;
+        list-style: none;
+        padding: 0;
       }
 
       .wrap {
-        width: 120px;
-        border: 1px solid black;
+        width: 200px;
+        border: 1px solid #ccc;
         text-align: center;
-        line-height: 25px;
+        line-height: 2;
       }
 
       .title {
-        background-color: tomato;
+        background: orange;
+        display: block;
       }
     </style>
   </head>
 
   <body>
     <div class="wrap" id="wrap">
-      
+      <ul class="menu"></ul>
     </div>
     <script src="./index.js"></script>
 
@@ -44,26 +46,20 @@
         },
       ];
 
-      var div = document.querySelector("div");
-      var dl = document.createElement("dl");
+      var ul = document.querySelector("ul.menu");
+      menu.forEach(function (item) {
+        var li = document.createElement("li");
+        li.innerHTML = `<span class="title">${item.name}</span>`;
 
-      menu.forEach(function (value, index) {
-        var dt = document.createElement("dt");
-        dt.className = "title";
-        dt.setAttribute("_id", (index + 1).toString());
-        dt.innerHTML = value.name;
-        var dd = document.createElement("dd");
-        for (var i = 0; i < value.children.length; i++) {
-          var p = document.createElement("p");
-          p.innerHTML = value.children[i];
-          dd.appendChild(p);
-        }
+        var childUl = document.createElement("ul");
 
-        dl.appendChild(dt);
-        dl.appendChild(dd);
+        item.children.forEach(function (child) {
+            childUl.innerHTML += `<li>${child}</li>`
+        });
+
+        li.appendChild(childUl);
+        ul.appendChild(li);
       });
-
-      div.appendChild(dl);
     </script>
   </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" />
+    </div>
+
+    <script>
+      var div = document.querySelector("div");
+      var inp = document.querySelector("input");
+
+      //聚焦时触发
+      inp.onfocus = function () {
+        console.log("聚焦了");
+      };
+
+      //聚焦事件不会冒泡
+      div.onfocus = function () {
+        console.log("div聚焦");
+      };
+
+      //失去焦点触发
+      inp.onblur = function (e) {
+        console.log("失去焦点", e.bubbles);
+      };
+    </script>
+  </body>
+</html>

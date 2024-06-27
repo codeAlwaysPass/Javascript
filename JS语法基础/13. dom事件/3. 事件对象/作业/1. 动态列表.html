@@ -34,30 +34,22 @@
 
       var btns = document.querySelectorAll("li button");
 
-      Array.from(btns).forEach(function (b) {
-        b.onclick = function (e) {
-          e.target.parentElement.remove();
-        };
-      });
-
       btn.onclick = function (e) {
         var li = document.createElement("li");
-        var span = document.createElement("span");
-        var button = document.createElement("button");
 
-        span.innerHTML = ipt.value;
-        button.innerHTML = "删除";
+        li.innerHTML = `<span>${ipt.value}</span>
+        <button>删除</button>`;
 
-        button.onclick = function (e) {
-          e.target.parentElement.remove();
-        };
-
-        li.appendChild(span);
-        li.appendChild(button);
         ul.append(li);
 
         ipt.value = "";
       };
+
+      ul.addEventListener("click", function (e) {
+        if (e.target.tagName === "BUTTON") {
+          e.target.parentElement.remove();
+        }
+      });
     </script>
   </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+
+    <script>
+      var inp = document.querySelector("input");
+
+      inp.onkeydown = function (e) {
+        //阻止了默认事件, 文本框内不会显示
+        //e.preventDefault();
+
+        //e.code表示键盘字符串, 适配键盘布局
+        console.log("key down", e.code);
+
+        //e.key也表示键盘字符串, 不适配键盘布局
+        console.log("key down", e.key);
+
+        //e.keyCode得到的是键盘编码
+        console.log("key down", e.keyCode);
+      };
+
+      inp.onkeypress = function (e) {
+        //阻止了默认事件, 文本框内不会显示
+        //e.preventDefault();
+
+        //e.charCode表示unicode编码
+        console.log("key press", e.charCode);
+      };
+
+      inp.onkeyup = function () {
+        console.log("key up");
+      };
+    </script>
+  </body>
+</html>

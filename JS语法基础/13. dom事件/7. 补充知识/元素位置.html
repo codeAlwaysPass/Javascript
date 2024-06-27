@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        width: 300px;
+        height: 300px;
+        background: #bbb;
+        margin: 100px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .box2 {
+        width: 200px;
+        height: 200px;
+        background: #888;
+        margin: 100px;
+        overflow: hidden;
+      }
+
+      .box3 {
+        width: 100px;
+        height: 100px;
+        background: #333;
+        margin: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <div class="box2">
+        <div class="box3"></div>
+      </div>
+    </div>
+
+    <script>
+      div1 = document.querySelector(".box1");
+      div2 = document.querySelector(".box2");
+      div3 = document.querySelector(".box3");
+
+      //输出body(div1没设置positive), 输出div1(div1为relative)
+      console.log(div3.offsetParent);
+
+      //offsetLeft, offsetTop是相当于该元素的offsetParent的坐标
+      console.log(div2.offsetLeft)
+
+      //如果offset是body, 则将其当作是整个网页(body的margin为8px)
+      console.log(div1.offsetLeft);
+    </script>
+  </body>
+</html>

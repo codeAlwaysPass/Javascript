@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>点击</button>
+
+    <script>
+      //单击事件：当按下鼠标并抬起后触发，或者按下tab聚焦然后点击回车
+      var btn = document.querySelector("button");
+      btn.onclick = function () {
+        console.log("被点击了");
+      };
+
+      //双击事件：双击频率又系统判定
+      btn.ondblclick = function () {
+        console.log("被双击了");
+      };
+
+      //按下事件
+      btn.onmousedown = function () {
+        console.log("按下");
+      };
+
+      //抬起事件
+      btn.onmouseup = function () {
+        console.log("抬起");
+      };
+
+      //点击顺序：按下 -> 抬起 -> 点击
+
+      //鼠标在元素上移动时触发
+      /*btn.onmousemove = function () {
+        console.log("移动");
+      };*/
+
+      //鼠标进入元素(会冒泡)
+      btn.onmouseover = function () {
+        console.log("over");
+      };
+
+      //鼠标离开元素(会冒泡)
+      btn.onmouseout = function () {
+        console.log("out");
+      };
+
+      //鼠标进入元素(不会冒泡)
+      btn.onmouseenter = function () {
+        console.log("enter");
+      };
+
+      //鼠标离开元素(不会冒泡)
+      btn.onmouseleave = function () {
+        console.log("leave");
+      };
+    </script>
+  </body>
+</html>

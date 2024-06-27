@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Document</title>
-</head>
-<body>
-    <div id="btn-container"></div>
-    <button onclick="imgChange(1)">第1张图片</button>
-    <button onclick="imgChange(2)">第2张图片</button>
-    <button onclick="imgChange(3)">第3张图片</button>
-    <button onclick="imgChange(4)">第4张图片</button>
-    <div style="margin-top:20px;">
-        <img src="img/1.jpg" alt="" id="imgShow" width="250" height="250">
-    </div>
+    <style>
+      #buttons button {
+        margin-right: 20px;
+      }
+
+      img {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="buttons"></div>
+    <img src="" alt="" />
     <script>
-        let imgShow = document.getElementById("imgShow");
-        let imgChange = function(i){
-            imgShow.src = "img/"+i+".jpg";
-        }
+      var imgs = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg"];
+      var divButtons = document.getElementById("buttons");
+      var img = document.getElementsByTagName("img")[0];
+
+      img.src = imgs[0];
+
+      imgs.forEach(function (src, i) {
+        var btn = document.createElement("button");
+        btn.innerText = `第${i + 1}张图片`;
+
+        divButtons.appendChild(btn);
+        btn.onclick = function () {
+          img.src = src;
+        };
+      });
     </script>
-</body>
+  </body>
 </html>

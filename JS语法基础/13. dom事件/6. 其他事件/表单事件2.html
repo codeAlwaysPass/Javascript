@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select name="" id="sel">
+      <option value="1">Lorem.</option>
+      <option value="2">Nam?</option>
+      <option value="3">Rerum.</option>
+      <option value="4">Pariatur.</option>
+      <option value="5">Dolor.</option>
+      <option value="6">Praesentium?</option>
+      <option value="7">Accusantium?</option>
+      <option value="8">Iusto!</option>
+      <option value="9">In?</option>
+      <option value="10">Reprehenderit.</option>
+    </select>
+
+    <input type="text" id="txt1" />
+
+    <textarea id="txt2"></textarea>
+
+    <script>
+      var sel = document.querySelector("select");
+
+      sel.onchange = function () {
+        //被选中项的索引
+        console.log(sel.selectedIndex);
+
+        //所有的项
+        console.log(sel.options);
+
+        console.log(sel.value);
+      };
+
+      //正在写的时候不会触发, 当离开时才触发, 可以冒泡
+      //和之前文本相同, 也不会触发
+      //不及时触发
+      txt1.onchange = txt2.onchange = function () {
+        console.log(this.value);
+      };
+
+      //改变触发事件, 及时触发
+      //该默认事件无法被阻止
+      txt1.oninput = txt2.oninput = function () {
+        console.log(this.value);
+      };
+    </script>
+  </body>
+</html>
